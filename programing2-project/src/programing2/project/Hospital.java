@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package programing2.project;
 
-/**
- *
- * @author user
- */
+import java.util.ArrayList;
+
 public class Hospital {
-    
+    private String department[] = {"NULL","ambulanceDepartment","opthalmologyDepartment","respiratoryDepartment","generalSurgeryDepartment" } ;
+    private String clinic[] = {"NULL","internalMedicineClinic","opthalmologyClinic","gastroenterologyClinic"};
+    private ArrayList <Doctor> doctorList = new ArrayList() ;
+    private ArrayList <Patient> patientList = new ArrayList() ;
 }

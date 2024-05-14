@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package programing2.project;
 
-/**
- *
- * @author user
- */
+import java.util.ArrayList;
+
 public class InnerTreatment extends Treatment {
-    
+private int departmentIndex ;
+private ArrayList <Doctor> attendingPhysicianList = new ArrayList() ;
 }
