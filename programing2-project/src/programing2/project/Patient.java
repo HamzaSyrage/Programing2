@@ -6,5 +6,17 @@ public class Patient {
     private String name ;
     private String address ;
     private Date birthDate ;
+
+    public Patient(String name, String address, Date birthDate) {
+        this.name = name;
+        this.address = address;
+        this.birthDate = birthDate;
+    }
+    
+    public Patient(String name, String address, int year, int month, int day) {
+        this.name = name;
+        this.address = address;
+        this.birthDate = new Date(year, month, day);
+    }
     
 }
