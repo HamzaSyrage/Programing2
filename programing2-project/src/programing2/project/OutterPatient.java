@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package programing2.project;
 
-/**
- *
- * @author user
- */
+import java.util.ArrayList;
+
 public class OutterPatient extends Patient {
+    private ArrayList <OutterTreatment> outterTreatmentsList = new ArrayList();
+    private boolean isAccepted ;
+    private Date acceptDate ;
     
 }

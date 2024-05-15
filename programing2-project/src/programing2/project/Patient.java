@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package programing2.project;
 
-/**
- *
- * @author user
- */
 public class Patient {
+    private static int counter = 1 ;
+    private final int id = counter++;
+    private String name ;
+    private String address ;
+    private Date birthDate ;
     
 }
