@@ -20,6 +20,14 @@ public class Date {
     public int getDay() {
         return day;
     }
+
+    public static Date getPresentDate() {
+        return presentDate;
+    }
+
+    public static void setPresentDate(int year, int month , int day) {
+        Date.presentDate = new Date(year, month, day);
+    }
     
     @Override
     public String toString() {
