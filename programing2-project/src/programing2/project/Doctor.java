@@ -15,6 +15,19 @@ public class Doctor {
         birthDate = new Date(year, month, day) ;
     }
     
+    public int getId() {
+    return id ;
+    }
+    
+    public String getInfo(){
+    return "id=" + id + ", name=" + name + ", birthDate=" + birthDate ;
+    }
+    
+    @Override
+    public String toString() {
+        return "Doctor{" + "id=" + id + ", name=" + name + ", birthDate=" + birthDate + '}';
+    }
+    
     
     
 }

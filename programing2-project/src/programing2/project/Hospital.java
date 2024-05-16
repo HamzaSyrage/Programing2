@@ -11,13 +11,22 @@ public class Hospital {
     public static void getDepartment() {
         for (int i = 1; i < 5; i++) {
             System.out.println("[" + i + "] " + Hospital.department[i]);
-        }
-         
+        }         
     }
+    
     public static void getClinic() {
         for (int i = 1; i < 5; i++) {
             System.out.println("[" + i + "] " + Hospital.clinic[i]);
-        }
-             
+        }             
       } 
+    
+    public static void getDOctorLIst() {
+        for(Doctor e : doctorList)
+            System.out.println(e);
+        System.out.println("");
+    }
+    
+    
+    
+    
 }

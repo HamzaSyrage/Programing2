@@ -24,5 +24,10 @@ public class ContractedDoctor extends Doctor {
 //        remuneration = treat.getPrice()/2 ;
 //        return remuneration;
 //    }
+
+    @Override
+    public String toString() {
+        return "ContractedDoctor{" + super.getInfo() + ", remuneration=" + remuneration + ", startDate=" + startDate + '}';
+    }
     
 }

@@ -13,6 +13,11 @@ public class SpecializedDoctor extends Doctor {
         super(name, year, month, day);
         this.departmentIndex = departmentIndex;
     }
+
+    @Override
+    public String toString() {
+        return "SpecializedDoctor{"+ super.getInfo() + ", salary=" + salary + ", departmentIndex=" + Hospital.department[departmentIndex] +   '}';
+    }
     
     
     
