@@ -15,7 +15,7 @@ public class Main {
         while (true) {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
                     + " [3] show doctor informatin\n [4] convert intern to specialized\n [5] get numbre of doctor\n"
-                    + " [6] add new patient");
+                    + " [6] add new patient\n [7] discharg patient from hospital");
 
             op = in.nextInt();
 
@@ -190,6 +190,7 @@ public class Main {
                 case 6 :
                     System.out.println("chose patient type\n [1] inner patient\n [2] outter patient");
                     int op5 = in.nextInt() ;
+                    boolean isDisCharged ;
                     String addres ;
                     System.out.println("enter name");
                     name = in.next();
@@ -203,12 +204,82 @@ public class Main {
                     d = in.nextInt();
                     switch(op5){
                     case 1 :
-                        
+                        int dy,dm,dd;
+                        System.out.println("is the patient charged y/n");
+                        char answer = in.next().charAt(0) ;
+                        if (answer == 'y') {
+                            isDisCharged = true ;
+                        }
+                        else {
+                        isDisCharged = false ;
+                        }
+                        if (isDisCharged) {
+                            System.out.println("enter discharged date");
+                            System.out.println("enter discharged year");
+                            dy = in.nextInt();
+                            System.out.println("enter discharged month");
+                            dm = in.nextInt();
+                            System.out.println("enter discharged day");
+                            dd = in.nextInt();
+                        Hospital.patientList.add(new InnerPatient(isDisCharged, dy, dm, dd, name, addres, y, m, d)) ;
+                        }
+                        else {
+                        Hospital.patientList.add(new InnerPatient(isDisCharged, name, addres, y, m, d)) ;
+                        }
                         break;
                     case 2 :
-                        
+                        System.out.println("enter accept date");
+                            System.out.println("enter accept year");
+                            dy = in.nextInt();
+                            System.out.println("enter accept month");
+                            dm = in.nextInt();
+                            System.out.println("enter accept day");
+                            dd = in.nextInt();
+                            Hospital.patientList.add(new OutterPatient(dy, dm, dd, name, addres, y, m, d)) ;
                         break;
                     }
+                    break;
+                case 7 :
+//                    System.out.println("chose the patient by id to discharged");
+//                    Hospital.getPatientLIst();
+//                    rid = in.nextInt();
+//                    Hospital.patientList.removeIf(prdct -> prdct.getId() == rid);
+                    isDisCharged = false;
+
+                    for (Patient e : Hospital.patientList) {
+                        if (e instanceof InnerPatient) {
+                            System.out.println(e);
+                            isDisCharged = true;
+                        }
+                    }
+                    if (isDisCharged) {
+                        System.out.println("chose the patient by id to discharged");
+                        System.out.println("enter id ");
+                        int dId = in.nextInt();
+//                        Hospital.getDepartment();
+//                        System.out.println("enter department index");
+//                        int indexOfDepartment = in.nextInt();
+                        int dy,dm,dd ;
+                        
+                            System.out.println("enter discharged date");
+                            System.out.println("enter discharged year");
+                            dy = in.nextInt();
+                            System.out.println("enter discharged month");
+                            dm = in.nextInt();
+                            System.out.println("enter discharged day");
+                            dd = in.nextInt();
+                        
+                        for (Patient e : Hospital.patientList) {
+                            if (e.getId() == dId) {
+                                
+//                                Hospital.patientList.add(new InnerPatient(e,dy,dm,dd));
+//                                Hospital.patientList.remove(e);
+                            }
+
+                        }
+                    }
+                    break;
+                case 8 :
                     break;
             }
         }

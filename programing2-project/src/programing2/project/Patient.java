@@ -18,5 +18,37 @@ public class Patient {
         this.address = address;
         this.birthDate = new Date(year, month, day);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+    
+    
+    
+    public String getInfo() {
+        return "id=" + id + ", name=" + name + ", address=" + address + ", birthDate=" + birthDate + '}';
+    }
+    
+    @Override
+    public String toString() {
+        return "Patient{" + "id=" + id + ", name=" + name + ", address=" + address + ", birthDate=" + birthDate + '}';
+    }
+    
+    
+    
+    
+    
     
 }

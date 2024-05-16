@@ -26,6 +26,11 @@ public class Hospital {
         System.out.println("");
     }
     
+    public static void getPatientLIst() {
+        for(Patient e : patientList)
+            System.out.println(e);
+        System.out.println("");
+    }
     
     
     

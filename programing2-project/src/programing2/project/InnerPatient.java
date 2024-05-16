@@ -33,6 +33,15 @@ public class InnerPatient extends Patient {
         super(name, address, year, month, day);
         this.isDischarged = isDischarged;
     }
+    public void setDisgargeDate(int dyear, int dmonth, int dday){
+    this.isDischarged = true ;
+    this.dischargeDate = new Date(dyear, dmonth, dday) ;
+    }
+
+    @Override
+    public String toString() {
+        return "InnerPatient{" + super.getInfo() /* + ", innerTreatmentList=" + innerTreatmentList */ + ", outterTreatmentsList=" + outterTreatmentsList + ", isDischarged=" + isDischarged + ", dischargeDate=" + dischargeDate + '}';
+    }
     
     
 }
