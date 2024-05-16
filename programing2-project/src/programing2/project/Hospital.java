@@ -20,7 +20,7 @@ public class Hospital {
         }             
       } 
     
-    public static void getDOctorLIst() {
+    public static void getDoctorLIst() {
         for(Doctor e : doctorList)
             System.out.println(e);
         System.out.println("");

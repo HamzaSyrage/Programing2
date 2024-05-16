@@ -70,7 +70,7 @@ public class Main {
                 break;
             case 2 :
                 System.out.println("chose the doctor by id to delete");
-                Hospital.getDOctorLIst();
+                Hospital.getDoctorLIst();
                 int id = in.nextInt();
                 Hospital.doctorList.removeIf(prdct -> prdct.getId() == id) ;
                 break;
