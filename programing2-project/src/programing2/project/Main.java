@@ -22,7 +22,7 @@ public class Main {
                 case 0:
                     return;
                 case 1:
-                    Doctor doc;
+                  
                     int op2,
                      y,
                      m,
@@ -49,16 +49,16 @@ public class Main {
                             sm = in.nextInt();
                             System.out.println("enter start training day");
                             sd = in.nextInt();
-                            doc = new InternDoctor(sy, sm, sd, name, y, m, d);
-                            Hospital.doctorList.add(doc);
+                            
+                            Hospital.doctorList.add(new InternDoctor(sy, sm, sd, name, y, m, d));
                             break;
                         case 2:
                             int index;
                             System.out.println("chose doctor department");
                             Hospital.getDepartment();
                             index = in.nextInt();
-                            doc = new SpecializedDoctor(index, name, y, m, d);
-                            Hospital.doctorList.add(doc);
+                            
+                            Hospital.doctorList.add(new SpecializedDoctor(index, name, y, m, d));
                             break;
                         case 3:
 
@@ -68,8 +68,8 @@ public class Main {
                             sm = in.nextInt();
                             System.out.println("enter start contract day");
                             sd = in.nextInt();
-                            doc = new ContractedDoctor(sy, sm, sd, name, y, m, d);
-                            Hospital.doctorList.add(doc);
+                            
+                            Hospital.doctorList.add(new ContractedDoctor(sy, sm, sd, name, y, m, d));
                             break;
                     }
                     break;
@@ -154,7 +154,7 @@ public class Main {
                     int op4 = in.nextInt();
                     switch(op4) {
                     case 1 :                   
-                        System.out.println("numbre of all doctor is:" + Hospital.doctorList.size());
+                        System.out.println("numbre of all doctor is: " + Hospital.doctorList.size());
                         System.out.println("");
                         break;
                     case 2 :
@@ -162,30 +162,33 @@ public class Main {
                         if (e instanceof InternDoctor) {
                             doctorCountre++;
                         }
-                            System.out.println("numbre of intern doctor is:" + doctorCountre);
-                            System.out.println("");
                     }
+                            System.out.println("numbre of intern doctor is: " + doctorCountre);
+                            System.out.println("");
                         break;
                     case 3 :
                        for (Doctor e : Hospital.doctorList) {
                         if (e instanceof SpecializedDoctor) {
                             doctorCountre++;
                         }
-                            System.out.println("numbre of specialized doctor is:" + doctorCountre);
-                            System.out.println("");
                     } 
+                            System.out.println("numbre of specialized doctor is: " + doctorCountre);
+                            System.out.println("");
                        break;
                     case 4 :
                          for (Doctor e : Hospital.doctorList) {
                         if (e instanceof ContractedDoctor) {
                             doctorCountre++;
                         }
-                            System.out.println("numbre of contracted doctor is:" + doctorCountre);
-                             System.out.println("");
                     }
+                            System.out.println("numbre of contracted doctor is: " + doctorCountre);
+                             System.out.println("");
                         break;
                     }
                   break;
+                case 6 :
+                    
+                    break;
             }
         }
     }
