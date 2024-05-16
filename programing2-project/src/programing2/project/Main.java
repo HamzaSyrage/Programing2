@@ -14,7 +14,8 @@ public class Main {
         int op;
         while (true) {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
-                    + " [3] show doctor informatin\n [4] convert intern to specialized\n [5] get numbre of doctor\n");
+                    + " [3] show doctor informatin\n [4] convert intern to specialized\n [5] get numbre of doctor\n"
+                    + " [6] add new patient");
 
             op = in.nextInt();
 
@@ -187,7 +188,27 @@ public class Main {
                     }
                   break;
                 case 6 :
-                    
+                    System.out.println("chose patient type\n [1] inner patient\n [2] outter patient");
+                    int op5 = in.nextInt() ;
+                    String addres ;
+                    System.out.println("enter name");
+                    name = in.next();
+                    System.out.println("enter addres");
+                    addres = in.next() ;
+                    System.out.println("enter birth year");
+                    y = in.nextInt();
+                    System.out.println("enter birth month");
+                    m = in.nextInt();
+                    System.out.println("enter birth day");
+                    d = in.nextInt();
+                    switch(op5){
+                    case 1 :
+                        
+                        break;
+                    case 2 :
+                        
+                        break;
+                    }
                     break;
             }
         }

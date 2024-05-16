@@ -24,6 +24,15 @@ public class InnerPatient extends Patient {
         }
     }
     
+    public InnerPatient(boolean isDischarged, String name, String address, Date birthDate) {
+        super(name, address, birthDate);
+        this.isDischarged = isDischarged;
+    }
+
+    public InnerPatient(boolean isDischarged, String name, String address, int year, int month, int day) {
+        super(name, address, year, month, day);
+        this.isDischarged = isDischarged;
+    }
     
     
 }
