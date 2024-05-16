@@ -14,7 +14,7 @@ public class Main {
         int op;
         while (true) {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
-                    + " [3] show doctor informatin\n [4] make inern to specialized\n [5] get numbre of doctor\n");
+                    + " [3] show doctor informatin\n [4] convert intern to specialized\n [5] get numbre of doctor\n");
 
             op = in.nextInt();
 
@@ -138,12 +138,11 @@ public class Main {
                         Hospital.getDepartment();
                         System.out.println("enter department index");
 
-                        int index = in.nextInt();
+                        int indexOfDepartment = in.nextInt();
                         for (Doctor e : Hospital.doctorList) {
                             if (e.getId() == dId) {
+                                Hospital.doctorList.add(new SpecializedDoctor(e,indexOfDepartment));
                                 Hospital.doctorList.remove(e);
-
-                                Hospital.doctorList.add(new SpecializedDoctor(e, index));
                             }
 
                         }
@@ -155,14 +154,16 @@ public class Main {
                     int op4 = in.nextInt();
                     switch(op4) {
                     case 1 :                   
-                        System.out.println(Hospital.doctorList.size());
+                        System.out.println("numbre of all doctor is:" + Hospital.doctorList.size());
+                        System.out.println("");
                         break;
                     case 2 :
                         for (Doctor e : Hospital.doctorList) {
                         if (e instanceof InternDoctor) {
                             doctorCountre++;
                         }
-                            System.out.println(doctorCountre);
+                            System.out.println("numbre of intern doctor is:" + doctorCountre);
+                            System.out.println("");
                     }
                         break;
                     case 3 :
@@ -170,7 +171,8 @@ public class Main {
                         if (e instanceof SpecializedDoctor) {
                             doctorCountre++;
                         }
-                            System.out.println(doctorCountre);
+                            System.out.println("numbre of specialized doctor is:" + doctorCountre);
+                            System.out.println("");
                     } 
                        break;
                     case 4 :
@@ -178,7 +180,8 @@ public class Main {
                         if (e instanceof ContractedDoctor) {
                             doctorCountre++;
                         }
-                            System.out.println(doctorCountre);
+                            System.out.println("numbre of contracted doctor is:" + doctorCountre);
+                             System.out.println("");
                     }
                         break;
                     }
