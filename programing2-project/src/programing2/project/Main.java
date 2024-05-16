@@ -71,9 +71,28 @@ public class Main {
             case 2 :
                 System.out.println("chose the doctor by id to delete");
                 Hospital.getDoctorLIst();
-                int id = in.nextInt();
-                Hospital.doctorList.removeIf(prdct -> prdct.getId() == id) ;
+                int rid = in.nextInt();
+                Hospital.doctorList.removeIf(prdct -> prdct.getId() == rid) ;
                 break;
+            case 3 :
+                        System.out.println("chose intern to make him specialized doctor");
+                for(Doctor e : Hospital.doctorList ){
+                    if ( e instanceof InternDoctor ) {
+                        System.out.println(e);
+                    }
+                }
+                System.out.println("enter id ");      
+                     int dId = in.nextInt();
+                System.out.println("enter department index");    
+                     int index = in.nextInt() ;
+                for(Doctor e : Hospital.doctorList ){      
+                    if (e.getId() == dId) {
+                    Hospital.doctorList.remove(e) ;
+                    
+                    Hospital.doctorList.add(new SpecializedDoctor(e,index));
+                    }
+                
+                }  
             }
         }
     }

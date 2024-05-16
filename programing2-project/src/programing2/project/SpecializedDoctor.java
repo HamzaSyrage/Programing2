@@ -1,6 +1,7 @@
 package programing2.project;
 
 public class SpecializedDoctor extends Doctor {
+    private int id ;
     private int departmentIndex ;
     final static float salary = 100;
 
@@ -12,6 +13,11 @@ public class SpecializedDoctor extends Doctor {
     public SpecializedDoctor(int departmentIndex, String name, int year, int month, int day) {
         super(name, year, month, day);
         this.departmentIndex = departmentIndex;
+    }
+    
+    public SpecializedDoctor(Doctor i , int departmentIndex) {
+    this(departmentIndex, i.getName() , i.getBirthDate());
+    id = i.getId() ;
     }
 
     @Override

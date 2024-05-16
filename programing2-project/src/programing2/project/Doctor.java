@@ -18,6 +18,15 @@ public class Doctor {
     public int getId() {
     return id ;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+    
     
     public String getInfo(){
     return "id=" + id + ", name=" + name + ", birthDate=" + birthDate ;
