@@ -15,7 +15,7 @@ public class Hospital {
     }
     
     public static void getClinic() {
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 4; i++) {
             System.out.println("[" + i + "] " + Hospital.clinic[i]);
         }             
       } 

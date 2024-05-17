@@ -15,7 +15,7 @@ public class Main {
         while (true) {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
                     + " [3] show doctor informatin\n [4] convert intern to specialized\n [5] get numbre of doctor\n"
-                    + " [6] add new patient\n [7] discharg patient from hospital");
+                    + " [6] add new patient\n [7] discharge patient from hospital\n [8] show patient information");
 
             op = in.nextInt();
 
@@ -87,6 +87,10 @@ public class Main {
                     switch(op3) {
                     case 1 :
                         Hospital.getDoctorLIst();
+                        isThereDoctor = true ;
+                        if (!isThereDoctor) {
+                            System.out.println("there is no doctor");
+                        }
                         break;
                     case 2 :
                         for (Doctor e : Hospital.doctorList) {
@@ -248,17 +252,17 @@ public class Main {
 
                     for (Patient e : Hospital.patientList) {
                         if (e instanceof InnerPatient) {
+                            if (!((InnerPatient) e).getIsDischarged()) {
+                                
                             System.out.println(e);
                             isDisCharged = true;
+                            }
                         }
                     }
                     if (isDisCharged) {
                         System.out.println("chose the patient by id to discharged");
                         System.out.println("enter id ");
                         int dId = in.nextInt();
-//                        Hospital.getDepartment();
-//                        System.out.println("enter department index");
-//                        int indexOfDepartment = in.nextInt();
                         int dy,dm,dd ;
                         
                             System.out.println("enter discharged date");
@@ -271,18 +275,89 @@ public class Main {
                         
                         for (Patient e : Hospital.patientList) {
                             if (e.getId() == dId) {
-                                
-//                                Hospital.patientList.add(new InnerPatient(e,dy,dm,dd));
-//                                Hospital.patientList.remove(e);
-                            }
-
+                                ((InnerPatient) e).setDisgargeDate(dy, dm, dd);
+                                }
                         }
                     }
+                    else 
+                        System.out.println("there is no patient to discharge");
                     break;
                 case 8 :
+                       System.out.println(" [1] all patient\n [2] inner patient\n [3] outter patient\n");
+                    int op6 = in.nextInt();
+                    boolean isTherePatient = false ;
+                    switch(op6) {
+                    case 1 :
+                        Hospital.getPatientLIst();
+                        isTherePatient = true ;
+                        if (!isTherePatient) {
+                            System.out.println("thre is no patient");
+                        }
+                        break;
+                    case 2 :
+                        for (Patient e : Hospital.patientList) {
+                        if (e instanceof InnerPatient) {
+                            System.out.println(e);
+                            isTherePatient = true ;
+                        }
+                    }
+                        if (!isTherePatient) {
+                             System.out.println("there is no inner patient");
+                        }
+                        break;
+                    case 3 :
+                       for (Patient e : Hospital.patientList) {
+                        if (e instanceof OutterPatient) {
+                            System.out.println(e);
+                            isTherePatient = true ;
+                        }
+                    }  
+                       if (!isTherePatient) {
+                             System.out.println("there is no outter patient");
+                        } 
+                       break;
+                    }
+                    break;
+                case 9 :
+                    System.out.println("chose patient by id to add tretment to him");
+                    Hospital.getPatientLIst();
+                    System.out.println("inter id");
+                    int tid = in.nextInt();
+                    System.out.println("entre tretment price");
+                    int price = in.nextInt() ;
+                    System.out.println("entre tretment date");
+                    System.out.println("entre tretment year");
+                    int ty = in.nextInt() ;
+                    System.out.println("entre tretment month");
+                    int tm = in.nextInt() ;
+                    System.out.println("entre tretment dat");
+                    int td = in.nextInt() ;
+                    for(Patient e : Hospital.patientList) {
+                        if (e.getId() == tid) {
+                            if (e instanceof InnerPatient) {
+                                
+                            }
+                            else if (e instanceof OutterPatient) {
+                                System.out.println("chose attend doctor by id");
+                                Hospital.getDoctorLIst();
+                                System.out.println("enter doctor index");
+                                int did = in.nextInt() ;
+                                System.out.println("chose clinic by index");
+                                Hospital.getClinic();
+                                System.out.println("enter clinic index");
+                                int clinicIndex = in.nextInt() ;
+                                for (Doctor attendDoctor : Hospital.doctorList) {
+                                    if (attendDoctor.getId() == did) {
+                                ((OutterPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
+                                        
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
                     break;
             }
         }
     }
-
 }

@@ -38,9 +38,15 @@ public class InnerPatient extends Patient {
     this.dischargeDate = new Date(dyear, dmonth, dday) ;
     }
 
+    public boolean getIsDischarged() {
+        return isDischarged;
+    }
+    
+    
+    
     @Override
     public String toString() {
-        return "InnerPatient{" + super.getInfo() /* + ", innerTreatmentList=" + innerTreatmentList */ + ", outterTreatmentsList=" + outterTreatmentsList + ", isDischarged=" + isDischarged + ", dischargeDate=" + dischargeDate + '}';
+        return "InnerPatient{" + super.getInfo() /* + ", innerTreatmentList=" + innerTreatmentList  + ", outterTreatmentsList=" + outterTreatmentsList */ + ", isDischarged=" + isDischarged + ", dischargeDate=" + dischargeDate + '}';
     }
     
     

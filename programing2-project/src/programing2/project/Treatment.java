@@ -1,19 +1,18 @@
 package programing2.project;
 
 public class Treatment {
-    private int Numbre ;
-    private Date Date ;
+    private static int countre = 1 ;
+    private  final int numbre = countre++ ;
+    private Date date ;
     private float Price ;
 
-    public Treatment(int Numbre, Date Date, float Price) {
-        this.Numbre = Numbre;
-        this.Date = Date;
+    public Treatment(Date date, float Price) {
+        this.date = date;
         this.Price = Price;
     }
     
-    public Treatment(int Numbre, int year, int month, int day, float Price) {
-        this.Numbre = Numbre;
-        this.Date = new Date(year, month, day);
+    public Treatment(int year, int month, int day, float Price) {
+        this.date = new Date(year, month, day);
         this.Price = Price;
     }
     

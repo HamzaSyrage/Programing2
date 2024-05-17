@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/Patient.java</file>
+            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/OutterPatient.java</file>
+            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/InnerTreatment.java</file>
+            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/OutterTreatment.java</file>
             <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/Doctor.java</file>
-            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/Date.java</file>
-            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/ContractedDoctor.java</file>
+            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/Treatment.java</file>
             <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/Hospital.java</file>
             <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/SpecializedDoctor.java</file>
             <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/Main.java</file>
-            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/InternDoctor.java</file>
+            <file>file:/C:/Users/user/Desktop/programing2/programing2-project/src/programing2/project/InnerPatient.java</file>
         </group>
     </open-files>
 </project-private>
