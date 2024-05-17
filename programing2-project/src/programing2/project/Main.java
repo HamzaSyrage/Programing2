@@ -2,6 +2,7 @@ package programing2.project;
 
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -15,7 +16,8 @@ public class Main {
         while (true) {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
                     + " [3] show doctor informatin\n [4] convert intern to specialized\n [5] get numbre of doctor\n"
-                    + " [6] add new patient\n [7] discharge patient from hospital\n [8] show patient information");
+                    + " [6] add new patient\n [7] discharge patient from hospital\n [8] show patient information\n"
+                    + " [9] add treatment to patient\n [10] ");
 
             op = in.nextInt();
 
@@ -318,90 +320,97 @@ public class Main {
                        break;
                     }
                     break;
-//                case 9 :
-//                    System.out.println("chose patient by id to add tretment to him");
-//                    Hospital.getPatientLIst();
-//                    System.out.println("inter id");
-//                    int tid = in.nextInt();
-//                    System.out.println("entre tretment price");
-//                    int price = in.nextInt() ;
-//                    System.out.println("entre tretment date");
-//                    System.out.println("entre tretment year");
-//                    int ty = in.nextInt() ;
-//                    System.out.println("entre tretment month");
-//                    int tm = in.nextInt() ;
-//                    System.out.println("entre tretment day");
-//                    int td = in.nextInt() ;
-//                    for(Patient e : Hospital.patientList) {
-//                        if (e.getId() == tid) {
-//                            if (e instanceof InnerPatient) {
-//                                System.out.println("chose treatment type\n [1] inner treatment\n [2] outter treatment"); 
-//                                int op7 = in.nextInt() ;
-//                                switch(op7) {
-//                                case 1 :
-//                                    System.out.println("chose department by index");
-//                                    Hospital.getDepartment();
-//                                    System.out.println("enter department index");
-//                                    int departmentIndex = in.nextInt() ;
-//                                    ((InnerPatient) e).addInnerTreatmentToList(departmentIndex, ty, tm, td, price);
-//                                    
-//                                    
-//                                    System.out.println("enter attend doctor numbre");
-//                                    int attendNumbre = in.nextInt() ;
-//                                    int idArr[] = new int[attendNumbre];
-//                                    int rdid=0 ;
-//                                    for (int i : idArr) {
-//                                    System.out.println("chose attend doctor by id");   
-//                                    int did = in.nextInt();                                       
-//                                    for(Doctor doc : Hospital.doctorList) {
-//                                        if (!(doc.getId() == rdid)) {
-//                                            System.out.println(doc);
-//                                        }
-//                                    }
-//                                    }
-//                                    break;
-//                                case 2 :
-//                                  
-//                                System.out.println("chose clinic by index");
-//                                Hospital.getClinic();
-//                                System.out.println("enter clinic index");
-//                                int clinicIndex = in.nextInt() ;
-//                                System.out.println("chose attend doctor by id");
-//                                Hospital.getDoctorLIst();
-//                                System.out.println("enter doctor index");
-//                                int did = in.nextInt() ;
-//                                for (Doctor attendDoctor : Hospital.doctorList) {
-//                                    if (attendDoctor.getId() == did) {
-//                                ((InnerPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
-//                                        
-//                                    }
-//                                    
-//                                }
-//                              
-//                                    break;
-//                                }
-//                                
-//                            }
-//                            else if (e instanceof OutterPatient) {
-//                                System.out.println("chose attend doctor by id");
-//                                Hospital.getDoctorLIst();
-//                                System.out.println("enter doctor index");
-//                                int did = in.nextInt() ;
-//                                System.out.println("chose clinic by index");
-//                                Hospital.getClinic();
-//                                System.out.println("enter clinic index");
-//                                int clinicIndex = in.nextInt() ;
-//                                for (Doctor attendDoctor : Hospital.doctorList) {
-//                                    if (attendDoctor.getId() == did) {
-//                                ((OutterPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
-//                                        
-//                                    }
-//                                    
-//                                }
-//                            }
-//                        }
-//                    }
-//                    break;
+                case 9 :
+                    System.out.println("chose patient by id to add tretment to him");
+                    Hospital.getPatientLIst();
+                    System.out.println("inter id");
+                    int tid = in.nextInt();
+                    System.out.println("entre tretment price");
+                    int price = in.nextInt() ;
+                    System.out.println("entre tretment date");
+                    System.out.println("entre tretment year");
+                    int ty = in.nextInt() ;
+                    System.out.println("entre tretment month");
+                    int tm = in.nextInt() ;
+                    System.out.println("entre tretment day");
+                    int td = in.nextInt() ;
+                    for(Patient e : Hospital.patientList) {
+                        if (e.getId() == tid) {
+                            if (e instanceof InnerPatient) {
+                                System.out.println("chose treatment type\n [1] inner treatment\n [2] outter treatment"); 
+                                int op7 = in.nextInt() ;
+                                switch(op7) {
+                                case 1 :
+                                    System.out.println("chose department by index");
+                                    Hospital.getDepartment();
+                                    System.out.println("enter department index");
+                                    int departmentIndex = in.nextInt() ;
+                                    
+                                    
+                                    System.out.println("enter attend doctor numbre");
+                                    int attendNumbre = in.nextInt() ;
+                                    ArrayList <Doctor> attendDoctorList = new ArrayList();
+                                    for (int i =0 ; i < attendNumbre ; i++) {
+                                    System.out.println("chose attend doctor by id");   
+                                        for(Doctor doc : Hospital.doctorList) {
+                                        
+                                            if (!(attendDoctorList.contains(doc))) {
+                                                System.out.println(doc);
+                                            }
+                                        
+                                    }
+                                    int did = in.nextInt();                                       
+                                    for(Doctor doc : Hospital.doctorList) {
+                                        if (doc.getId() == did) {
+                                            attendDoctorList.add(doc) ;
+                                          
+                                        }
+                                    }
+                                    }
+                                    ((InnerPatient) e).addInnerTreatmentToList(departmentIndex, attendDoctorList, ty, tm, td, price);
+                                    break;
+                                case 2 :
+                                  
+                                System.out.println("chose clinic by index");
+                                Hospital.getClinic();
+                                System.out.println("enter clinic index");
+                                int clinicIndex = in.nextInt() ;
+                                System.out.println("chose attend doctor by id");
+                                Hospital.getDoctorLIst();
+                                System.out.println("enter doctor index");
+                                int did = in.nextInt() ;
+                                for (Doctor attendDoctor : Hospital.doctorList) {
+                                    if (attendDoctor.getId() == did) {
+                                ((InnerPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
+                                        
+                                    }
+                                    
+                                }
+                              
+                                    break;
+                                }
+                                
+                            }
+                            else if (e instanceof OutterPatient) {
+                                System.out.println("chose attend doctor by id");
+                                Hospital.getDoctorLIst();
+                                System.out.println("enter doctor index");
+                                int did = in.nextInt() ;
+                                System.out.println("chose clinic by index");
+                                Hospital.getClinic();
+                                System.out.println("enter clinic index");
+                                int clinicIndex = in.nextInt() ;
+                                for (Doctor attendDoctor : Hospital.doctorList) {
+                                    if (attendDoctor.getId() == did) {
+                                ((OutterPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
+                                        
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                    break;
             }
         }
     }

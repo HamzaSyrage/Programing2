@@ -46,6 +46,10 @@ public class InnerPatient extends Patient {
         innerTreatmentList.add(new InnerTreatment(departmentIndex, id , year, month, day, Price)) ;
     }
 
+    public void addInnerTreatmentToList(int departmentIndex, ArrayList attendingDoctorList , int year, int month, int day, float Price) {
+        innerTreatmentList.add(new InnerTreatment(departmentIndex, attendingDoctorList , year, month, day, Price)) ;
+    }
+    
     public boolean getIsDischarged() {
         return isDischarged;
     }

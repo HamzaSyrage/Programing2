@@ -10,7 +10,15 @@ public class InnerTreatment extends Treatment {
         super(date, Price);
         this.departmentIndex = departmentIndex;
     }
-
+    
+    public InnerTreatment(int departmentIndex, ArrayList attendingDoctorList, int year, int month, int day, float Price) {
+        super(year, month, day, Price);
+        this.departmentIndex = departmentIndex;
+        this.attendingDoctorList.addAll(attendingDoctorList) ;
+    }
+    
+    
+    
     public InnerTreatment(int departmentIndex, int id[] , int year, int month, int day, float Price) {
         super(year, month, day, Price);
         this.departmentIndex = departmentIndex;
