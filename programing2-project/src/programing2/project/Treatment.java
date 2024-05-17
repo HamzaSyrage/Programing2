@@ -19,12 +19,24 @@ public class Treatment {
     public int getNumbre() {
         return numbre;
     }
+
+    public Date getTreatmentDate() {
+        return date;
+    }
     
     
     
     
     public float getPrice() {
         return Price;
+    }
+    public String getInfo() {
+        return "numbre=" + numbre + ", date=" + date + ", Price=" + Price + '}';
+    }
+
+    @Override
+    public String toString() {
+        return "Treatment{" + "numbre=" + numbre + ", date=" + date + ", Price=" + Price + '}';
     }
     
 }

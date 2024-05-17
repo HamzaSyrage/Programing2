@@ -53,12 +53,23 @@ public class InnerPatient extends Patient {
     public boolean getIsDischarged() {
         return isDischarged;
     }
+
+   
+    @Override
+    public void getTreatmentList(){
+        for (InnerTreatment it : innerTreatmentList) {
+            System.out.println(it);
+        }
+        for (OutterTreatment ot : outterTreatmentsList) {
+            System.out.println(ot);
+        }
+    }
     
     
     
     @Override
     public String toString() {
-        return "InnerPatient{" + super.getInfo() /* + ", innerTreatmentList=" + innerTreatmentList  + ", outterTreatmentsList=" + outterTreatmentsList */ + ", isDischarged=" + isDischarged + ", dischargeDate=" + dischargeDate + '}';
+        return "InnerPatient{" + super.getInfo() /* + "innerTreatmentList=" + innerTreatmentList  + ", outterTreatmentsList=" + outterTreatmentsList */ + ", isDischarged=" + isDischarged + ", dischargeDate=" + dischargeDate + '}';
     }
     
     

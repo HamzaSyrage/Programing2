@@ -21,7 +21,13 @@ public class OutterPatient extends Patient {
         outterTreatmentsList.add(new OutterTreatment(clinicIndex, attendingDoctor, year, month, day, Price)) ;
     }
 
+
     
+    public void getTreatmentList(){
+        for (OutterTreatment ot : outterTreatmentsList) {
+            System.out.println(ot);
+        }
+    }
     
     
     @Override

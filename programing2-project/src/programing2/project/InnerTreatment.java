@@ -32,18 +32,15 @@ public class InnerTreatment extends Treatment {
     }
     
     
+    
     // we need away to add doctor list in the constructor
 
-    public void addAttendingDoctorToList(int...id) {
-        for (int i : id) {
-            for (Doctor doctor : Hospital.doctorList) {
-                if (doctor.getId() == i ) {
-                    attendingDoctorList.add(doctor) ;
-                }
-            }
-        }
-       
+    @Override
+    public String toString() {
+        return "InnerTreatment{" + super.getInfo() + ", departmentIndex=" + departmentIndex + ", attendingDoctorList=" + attendingDoctorList + '}';
     }
+
+    
     
     
 }

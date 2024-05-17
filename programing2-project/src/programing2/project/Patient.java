@@ -35,6 +35,9 @@ public class Patient {
         return birthDate;
     }
     
+    public void getTreatmentList() { 
+    }
+    
     
     
     public String getInfo() {

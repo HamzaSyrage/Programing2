@@ -15,6 +15,11 @@ public class OutterTreatment extends Treatment {
         this.clinicIndex = clinicIndex;
         this.attendingDoctor = attendingDoctor;
     }
+
+    @Override
+    public String toString() {
+        return "OutterTreatment{" + super.getInfo() + ", clinicIndex=" + clinicIndex + ", attendingDoctor=" + attendingDoctor + '}';
+    }
     
     
     

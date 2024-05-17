@@ -17,7 +17,7 @@ public class Main {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
                     + " [3] show doctor informatin\n [4] convert intern to specialized\n [5] get numbre of doctor\n"
                     + " [6] add new patient\n [7] discharge patient from hospital\n [8] show patient information\n"
-                    + " [9] add treatment to patient\n [10] ");
+                    + " [9] add treatment to patient\n [10] show all patient in department\n [11] show patient treatment list");
 
             op = in.nextInt();
 
@@ -246,10 +246,6 @@ public class Main {
                     }
                     break;
                 case 7 :
-//                    System.out.println("chose the patient by id to discharged");
-//                    Hospital.getPatientLIst();
-//                    rid = in.nextInt();
-//                    Hospital.patientList.removeIf(prdct -> prdct.getId() == rid);
                     isDisCharged = false;
 
                     for (Patient e : Hospital.patientList) {
@@ -411,6 +407,59 @@ public class Main {
                         }
                     }
                     break;
+//              case 10 :
+//                    System.out.println("chose an option\n [1] show patient of all time\n [2] show patient in specific time zone");
+//                    int op7 = in.nextInt() ;
+//                    switch (op7) {
+//                    case 1 :
+//                        for (Patient p : Hospital.patientList) {
+//                            if (p instanceof InnerPatient) {
+//                                System.out.println(p);
+//                            }
+//                        }
+//                        break;
+//                    
+//                    case 2 :
+//                        System.out.println("enter time zone start date");
+//                        System.out.println("enter time zone start year");
+//                        int zsy = in.nextInt();
+//                        System.out.println("enter time zone start month");
+//                        int zsm = in.nextInt();                        
+//                        System.out.println("enter time zone start day");
+//                        int zsd = in.nextInt();
+//                        
+//                        System.out.println("enter time zone end date");
+//                        System.out.println("enter time zone end year");
+//                        int zey = in.nextInt();
+//                        System.out.println("enter time zone end month");
+//                        int zem = in.nextInt();                        
+//                        System.out.println("enter time zone end day");
+//                        int zed = in.nextInt();
+//                        
+//                        for (Patient p : Hospital.patientList) {
+//                        
+//                            if (p instanceof InnerPatient) {
+//                                System.out.println(p);
+//                            }
+//                        }
+//                        break;
+//                    
+//                    }
+//                    break;
+                case 11 : 
+                    System.out.println("chose patient by id ");
+                    Hospital.getPatientLIst(); 
+                    int pid = in.nextInt() ;
+                    for (Patient p : Hospital.patientList) {
+                        if(p.getId()==pid){
+                            if (p instanceof InnerPatient) {
+                             p.getTreatmentList();
+                            }
+                            else if (p instanceof OutterPatient) {
+                                p.getTreatmentList();
+                            }
+                        }
+                    }
             }
         }
     }
