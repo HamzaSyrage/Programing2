@@ -37,6 +37,14 @@ public class InnerPatient extends Patient {
     this.isDischarged = true ;
     this.dischargeDate = new Date(dyear, dmonth, dday) ;
     }
+    
+    public void addOutterTreatmentToList(int clinicIndex, Doctor attendingDoctor, int year, int month, int day, float Price) {
+        outterTreatmentsList.add(new OutterTreatment(clinicIndex, attendingDoctor, year, month, day, Price)) ;
+    }
+    
+    public void addInnerTreatmentToList(int departmentIndex, int id[] , int year, int month, int day, float Price) {
+        innerTreatmentList.add(new InnerTreatment(departmentIndex, id , year, month, day, Price)) ;
+    }
 
     public boolean getIsDischarged() {
         return isDischarged;

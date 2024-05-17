@@ -15,6 +15,11 @@ public class Treatment {
         this.date = new Date(year, month, day);
         this.Price = Price;
     }
+
+    public int getNumbre() {
+        return numbre;
+    }
+    
     
     
     
