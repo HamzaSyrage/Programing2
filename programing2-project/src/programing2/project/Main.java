@@ -90,7 +90,7 @@ public class Main {
                     switch (op3) {
                         case 1:
                             Hospital.getDoctorLIst();
-                            isThereDoctor = true;
+                            
                             if (!isThereDoctor) {
                                 System.err.println("there is no doctor");
                             }
@@ -291,7 +291,7 @@ public class Main {
                     switch (op6) {
                         case 1:
                             Hospital.getPatientLIst();
-                            isTherePatient = true;
+                           
                             if (!isTherePatient) {
                                 System.err.println("thre is no patient");
                             }
