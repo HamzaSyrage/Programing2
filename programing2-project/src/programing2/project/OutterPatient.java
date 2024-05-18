@@ -7,10 +7,7 @@ public class OutterPatient extends Patient {
     private final boolean isAccepted = true ;
     private Date acceptDate ;
 
-    public OutterPatient(Date acceptDate, String name, String address, Date birthDate) {
-        super(name, address, birthDate);
-        this.acceptDate = acceptDate;
-    }
+    
 
     public OutterPatient( int ayear, int amonth, int aday, String name, String address, int year, int month, int day) {
         super(name, address, year, month, day);
@@ -26,13 +23,14 @@ public class OutterPatient extends Patient {
     public void getTreatmentList(){
         for (OutterTreatment ot : outterTreatmentsList) {
             System.out.println(ot);
+            System.out.println("");
         }
     }
     
     
     @Override
     public String toString() {
-        return "OutterPatient{" + super.getInfo() /* + ", outterTreatmentsList=" + outterTreatmentsList */ + ", isAccepted=" + isAccepted + ", acceptDate=" + acceptDate + '}';
+        return "OutterPatient{" + super.getInfo()  + ", isAccepted=" + isAccepted + ", acceptDate=" + acceptDate + '}';
     }
 
     

@@ -2,7 +2,7 @@ package programing2.project;
 
 public class SpecializedDoctor extends Doctor {
     private int departmentIndex ;
-    final static float salary = 100;
+    final static float salary = 10000;
 
     public SpecializedDoctor(int departmentIndex, String name, Date birthDate) {
         super(name, birthDate);
@@ -15,8 +15,7 @@ public class SpecializedDoctor extends Doctor {
     }
     
     public SpecializedDoctor(Doctor i , int departmentIndex) {
-    this(departmentIndex, i.getName() , i.getBirthDate());
-    
+    this(departmentIndex, i.getName() , i.getBirthDate());   
     }
 
     @Override

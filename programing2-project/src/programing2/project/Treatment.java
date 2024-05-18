@@ -6,10 +6,7 @@ public class Treatment {
     private Date date ;
     private float Price ;
 
-    public Treatment(Date date, float Price) {
-        this.date = date;
-        this.Price = Price;
-    }
+
     
     public Treatment(int year, int month, int day, float Price) {
         this.date = new Date(year, month, day);

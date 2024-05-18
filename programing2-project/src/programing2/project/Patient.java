@@ -7,11 +7,7 @@ public class Patient {
     private String address ;
     private Date birthDate ;
 
-    public Patient(String name, String address, Date birthDate) {
-        this.name = name;
-        this.address = address;
-        this.birthDate = birthDate;
-    }
+
     
     public Patient(String name, String address, int year, int month, int day) {
         this.name = name;
@@ -23,17 +19,9 @@ public class Patient {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
+    
 
-    public String getAddress() {
-        return address;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
+    
     
     public void getTreatmentList() { 
     }

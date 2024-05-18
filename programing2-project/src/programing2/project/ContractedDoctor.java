@@ -2,7 +2,7 @@ package programing2.project;
 
 
 public class ContractedDoctor extends Doctor {
-    private float remuneration ;
+    private float remuneration = 0 ;
     private Date startDate ;
 // we need a method to set rmuration from treat and patient
     public ContractedDoctor(Date startDate, String name, Date birthDate) {
@@ -15,15 +15,12 @@ public class ContractedDoctor extends Doctor {
         this.startDate = new Date(syear, smonth, sday);
     }
 
-    
+    public void addRemuneration(int price) {
+    remuneration += price ; 
+    }
     
 
-// edit this thing later
-    
-//    public float getRemuneration(Treatment treat) {
-//        remuneration = treat.getPrice()/2 ;
-//        return remuneration;
-//    }
+
 
     @Override
     public String toString() {
