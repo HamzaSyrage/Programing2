@@ -15,8 +15,8 @@ public class ContractedDoctor extends Doctor {
         this.startDate = new Date(syear, smonth, sday);
     }
 
-    public void addRemuneration(int price) {
-    remuneration += price ; 
+    public void addRemuneration(float price) {
+    remuneration += price / 2 ; 
     }
     
 

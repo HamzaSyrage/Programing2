@@ -326,7 +326,7 @@ public class Main {
                     System.err.println("enter id");
                     int tid = in.nextInt();
                     System.out.println("entre treatment price");
-                    int price = in.nextInt();
+                    float price = in.nextFloat();
                     System.err.println("entre treatment date");
                     System.out.println("entre treatment year");
                     int ty = in.nextInt();
@@ -351,7 +351,7 @@ public class Main {
                                         System.out.println("enter how many attend doctor :");
                                          attendNumbre = in.nextInt();
                                         if (attendNumbre > Hospital.doctorList.size()) {
-                                            System.err.println("thre is no enough doctor");
+                                            System.err.println("there is no enough doctor");
                                         }
                                         else
                                             break;
@@ -371,7 +371,9 @@ public class Main {
                                             for (Doctor doc : Hospital.doctorList) {
                                                 if (doc.getId() == did) {
                                                     attendDoctorList.add(doc);
-
+                                                    if (doc instanceof  ContractedDoctor) {
+                                                        ((ContractedDoctor) doc).addRemuneration(price);
+                                                    }
                                                 }
                                             }
                                         }
@@ -379,18 +381,21 @@ public class Main {
                                         break;
                                     case 2:
 
+                                        System.out.println("chose attend doctor by id");
+                                        Hospital.getDoctorLIst();
+                                        System.err.println("enter doctor id");
+                                        int did = in.nextInt();
                                         System.out.println("chose clinic by index");
                                         Hospital.getClinic();
                                         System.err.println("enter clinic index");
                                         int clinicIndex = in.nextInt();
-                                        System.out.println("chose attend doctor by id");
-                                        Hospital.getDoctorLIst();
-                                        System.err.println("enter doctor index");
-                                        int did = in.nextInt();
                                         for (Doctor attendDoctor : Hospital.doctorList) {
                                             if (attendDoctor.getId() == did) {
+                                                 if (attendDoctor instanceof  ContractedDoctor) {
+                                                        ((ContractedDoctor) attendDoctor).addRemuneration(price);
+                                                    }
                                                 ((InnerPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
-
+                                                
                                             }
 
                                         }
@@ -401,7 +406,7 @@ public class Main {
                             } else if (e instanceof OutterPatient) {
                                 System.out.println("chose attend doctor by id");
                                 Hospital.getDoctorLIst();
-                                System.err.println("enter doctor index");
+                                System.err.println("enter doctor id");
                                 int did = in.nextInt();
                                 System.out.println("chose clinic by index");
                                 Hospital.getClinic();
@@ -409,6 +414,9 @@ public class Main {
                                 int clinicIndex = in.nextInt();
                                 for (Doctor attendDoctor : Hospital.doctorList) {
                                     if (attendDoctor.getId() == did) {
+                                        if (attendDoctor instanceof  ContractedDoctor) {
+                                                        ((ContractedDoctor) attendDoctor).addRemuneration(price);
+                                                    }
                                         ((OutterPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
 
                                     }
