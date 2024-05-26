@@ -19,6 +19,18 @@ public class Patient {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
     
 
     

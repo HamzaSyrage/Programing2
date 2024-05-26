@@ -11,19 +11,31 @@ public class Main {
         LocalDate localDate = LocalDate.now();
         Date.setPresentDate(localDate.getYear(), localDate.getMonthValue(), localDate.getDayOfMonth());
         System.out.println("");
-        System.err.println("present " + Date.presentDate);
+        System.out.println("present " + Date.presentDate);
         System.out.println("");
+        Hospital.doctorList.add(new InternDoctor(2023, 1, 1, "ahmad", 2000, 1, 1));
+        Hospital.doctorList.add(new SpecializedDoctor(2, "samer", 2000, 1, 1));
+        Hospital.doctorList.add(new ContractedDoctor(2020, 1, 1, "jamal", 2000, 1, 1));
+        Hospital.patientList.add(new InnerPatient(false, "kamal", "damascus", 2000, 1, 1)) ;
+        Hospital.patientList.add(new OutterPatient(2023, 1, 1, "ramy", "damascus", 2000, 1, 1)) ;
+        
+
         int op;
         while (true) {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
                     + " [3] show doctor informatin\n [4] convert intern to specialized\n [5] get number of doctor\n"
-                    + " [6] add new patient\n [7] discharge patient from hospital\n [8] show patient information\n"
-                    + " [9] add treatment to patient\n [10] show all patient in department\n [11] show patient treatment list\n"
-                    + " [12] show number of patient in specific department ");
+                    + " [6] add new patient\n [7] discharge patient from hospital\n [8] accept outter patient\n"
+                    + " [9] show patient information\n [10] add treatment to patient\n [11] show all patient in department\n"
+                    + " [12] show patient treatment list\n [13] show number of patient in specific department\n");
 
             op = in.nextInt();
 
             switch (op) {
+                default:
+                    System.out.println("");
+                    System.out.println("invalid input");
+                    System.out.println("");
+                    break;
                 case 0:
                     return;
                 case 1:
@@ -46,7 +58,7 @@ public class Main {
                     switch (op2) {
                         default:
                             System.out.println("");
-                            System.err.println("invalid input");
+                            System.out.println("invalid input");
                             System.out.println("");
                             break;
                         case 1:
@@ -65,7 +77,7 @@ public class Main {
                         case 2:
                             int index;
                             System.out.println("");
-                            System.err.println("chose doctor department");
+                            System.out.println("chose doctor department");
                             System.out.println("");
                             Hospital.getDepartment();
                             index = in.nextInt();
@@ -86,13 +98,25 @@ public class Main {
                     }
                     break;
                 case 2:
-                    
+
                     System.out.println("");
-                    System.err.println("chose the doctor by id to delete");
+                    System.out.println("chose the doctor by id to delete");
                     System.out.println("");
                     Hospital.getDoctorLIst();
                     int rid = in.nextInt();
-                    Hospital.doctorList.removeIf(prdct -> prdct.getId() == rid);
+                    boolean rmFound = false;
+                    for (Doctor e : Hospital.doctorList) {
+                        if (e.getId() == rid) {
+                            rmFound = true;
+                        }
+                    }
+                    if (!rmFound) {
+                        System.out.println("");
+                        System.out.println("invalid input");
+                        System.out.println("");
+                    } else {
+                        Hospital.doctorList.removeIf(prdct -> prdct.getId() == rid);
+                    }
                     break;
                 case 3:
                     System.out.println(" [1] all doctor\n [2] intern doctor\n [3] specialized doctor\n [4] contracted doctor\n");
@@ -101,7 +125,7 @@ public class Main {
                     switch (op3) {
                         default:
                             System.out.println("");
-                            System.err.println("invalid input");
+                            System.out.println("invalid input");
                             System.out.println("");
                             break;
                         case 1:
@@ -109,7 +133,7 @@ public class Main {
 
                             if (Hospital.doctorList.isEmpty()) {
                                 System.out.println("");
-                                System.err.println("there is no doctor");
+                                System.out.println("there is no doctor");
                                 System.out.println("");
                             }
                             break;
@@ -122,7 +146,7 @@ public class Main {
                             }
                             if (!isThereDoctor) {
                                 System.out.println("");
-                                System.err.println("there is no intern doctor");
+                                System.out.println("there is no intern doctor");
                                 System.out.println("");
                             }
                             break;
@@ -135,7 +159,7 @@ public class Main {
                             }
                             if (!isThereDoctor) {
                                 System.out.println("");
-                                System.err.println("there is no specialized doctor");
+                                System.out.println("there is no specialized doctor");
                                 System.out.println("");
                             }
                             break;
@@ -148,7 +172,7 @@ public class Main {
                             }
                             if (!isThereDoctor) {
                                 System.out.println("");
-                                System.err.println("there is no contracted doctor");
+                                System.out.println("there is no contracted doctor");
                                 System.out.println("");
                             }
                             break;
@@ -166,12 +190,12 @@ public class Main {
                     if (InternFound) {
                         System.out.println("chose intern to make him specialized doctor by id");
                         System.out.println("");
-                        System.err.println("enter id ");
+                        System.out.println("enter id ");
                         System.out.println("");
                         int dId = in.nextInt();
                         Hospital.getDepartment();
                         System.out.println("");
-                        System.err.println("enter department index");
+                        System.out.println("enter department index");
                         System.out.println("");
                         int indexOfDepartment = in.nextInt();
                         for (Doctor e : Hospital.doctorList) {
@@ -181,10 +205,9 @@ public class Main {
                             }
 
                         }
-                    }
-                    else {
+                    } else {
                         System.out.println("");
-                        System.err.println("there is no intern");
+                        System.out.println("there is no intern");
                         System.out.println("");
                     }
                     break;
@@ -195,12 +218,12 @@ public class Main {
                     switch (op4) {
                         default:
                             System.out.println("");
-                            System.err.println("invalid input");
+                            System.out.println("invalid input");
                             System.out.println("");
                             break;
                         case 1:
                             System.out.println("");
-                            System.err.println("number of all doctor is: " + Hospital.doctorList.size());
+                            System.out.println("number of all doctor is: " + Hospital.doctorList.size());
                             System.out.println("");
                             break;
                         case 2:
@@ -210,7 +233,7 @@ public class Main {
                                 }
                             }
                             System.out.println("");
-                            System.err.println("number of intern doctor is: " + doctorCountre);
+                            System.out.println("number of intern doctor is: " + doctorCountre);
                             System.out.println("");
                             break;
                         case 3:
@@ -220,7 +243,7 @@ public class Main {
                                 }
                             }
                             System.out.println("");
-                            System.err.println("number of specialized doctor is: " + doctorCountre);
+                            System.out.println("number of specialized doctor is: " + doctorCountre);
                             System.out.println("");
                             break;
                         case 4:
@@ -230,7 +253,7 @@ public class Main {
                                 }
                             }
                             System.out.println("");
-                            System.err.println("number of contracted doctor is: " + doctorCountre);
+                            System.out.println("number of contracted doctor is: " + doctorCountre);
                             System.out.println("");
                             break;
                     }
@@ -253,7 +276,7 @@ public class Main {
                     switch (op5) {
                         default:
                             System.out.println("");
-                            System.err.println("invalid input");
+                            System.out.println("invalid input");
                             System.out.println("");
                             break;
                         case 1:
@@ -261,7 +284,7 @@ public class Main {
                              dm,
                              dd;
                             System.out.println("");
-                            System.err.println("is the patient charged y/n");
+                            System.out.println("is the patient charged y/n");
                             System.out.println("");
                             char answer = in.next().charAt(0);
                             if (answer == 'y') {
@@ -284,7 +307,7 @@ public class Main {
                             break;
                         case 2:
                             System.out.println("");
-                            System.err.println("enter accept date");
+                            System.out.println("enter accept date");
                             System.out.println("");
                             System.out.println("enter accept year");
                             dy = in.nextInt();
@@ -311,13 +334,13 @@ public class Main {
                     if (isDisCharged) {
                         System.out.println("chose the patient by id to discharge him");
                         System.out.println("");
-                        System.err.println("enter id ");
+                        System.out.println("enter id ");
                         System.out.println("");
                         int dId = in.nextInt();
                         int dy, dm, dd;
-                        
+
                         System.out.println("");
-                        System.err.println("enter discharged date");
+                        System.out.println("enter discharged date");
                         System.out.println("");
                         System.out.println("enter discharged year");
                         dy = in.nextInt();
@@ -333,26 +356,68 @@ public class Main {
                         }
                     } else {
                         System.out.println("");
-                        System.err.println("there is no patient to discharge");
+                        System.out.println("there is no patient to discharge");
                         System.out.println("");
                     }
                     break;
-                case 8:
+                    case 8 :
+                    boolean outterFound = false;
+                    int dy,dm,dd ;
+                    for (Patient p : Hospital.patientList) {
+                        if (p instanceof OutterPatient) {
+                            System.out.println(p);
+                            outterFound = true;
+                        }
+                    }
+                    if (outterFound) {
+                        System.out.println("chose outter patient to accept him");
+                        System.out.println("");
+                        System.out.println("enter id ");
+                        System.out.println("");
+                        int dId = in.nextInt();
+                        Hospital.getDepartment();
+                        System.out.println("");
+                        System.out.println("enter department index");
+                        System.out.println("");
+                        int indexOfDepartment = in.nextInt();
+                        System.out.println("");
+                            System.out.println("enter accept date");
+                            System.out.println("");
+                            System.out.println("enter accept year");
+                            dy = in.nextInt();
+                            System.out.println("enter accept month");
+                            dm = in.nextInt();
+                            System.out.println("enter accept day");
+                            dd = in.nextInt();
+                        for (Patient p : Hospital.patientList) {
+                            if (p.getId() == dId) {
+                                Hospital.patientList.add(new InnerPatient((OutterPatient)p));
+                                Hospital.patientList.remove(p);
+                            }
+
+                        }
+                    } else {
+                        System.out.println("");
+                        System.out.println("there is no outter patient");
+                        System.out.println("");
+                    }
+                    break;  
+                case 9:
                     System.out.println(" [1] all patient\n [2] inner patient\n [3] outter patient\n");
                     int op6 = in.nextInt();
                     boolean isTherePatient = false;
                     switch (op6) {
                         default:
                             System.out.println("");
-                            System.err.println("invalid input");
+                            System.out.println("invalid input");
                             System.out.println("");
                             break;
                         case 1:
                             Hospital.getPatientLIst();
-                           
+
                             if (Hospital.patientList.isEmpty()) {
                                 System.out.println("");
-                                System.err.println("there is no patient");
+                                System.out.println("there is no patient");
                                 System.out.println("");
                             }
                             break;
@@ -365,7 +430,7 @@ public class Main {
                             }
                             if (!isTherePatient) {
                                 System.out.println("");
-                                System.err.println("there is no inner patient");
+                                System.out.println("there is no inner patient");
                                 System.out.println("");
                             }
                             break;
@@ -378,23 +443,23 @@ public class Main {
                             }
                             if (!isTherePatient) {
                                 System.out.println("");
-                                System.err.println("there is no outter patient");
+                                System.out.println("there is no outter patient");
                                 System.out.println("");
                             }
                             break;
                     }
                     break;
-                case 9:
+                case 10:
                     System.out.println("chose patient by id to add treatment to him");
                     Hospital.getPatientLIst();
                     System.out.println("");
-                    System.err.println("enter id");
+                    System.out.println("enter id");
                     System.out.println("");
                     int tid = in.nextInt();
                     System.out.println("entre treatment price");
                     float price = in.nextFloat();
                     System.out.println("");
-                    System.err.println("entre treatment date");
+                    System.out.println("entre treatment date");
                     System.out.println("");
                     System.out.println("entre treatment year");
                     int ty = in.nextInt();
@@ -409,35 +474,35 @@ public class Main {
                                 int op7 = in.nextInt();
                                 switch (op7) {
                                     default:
-                            System.out.println("");
-                            System.err.println("invalid input");
-                            System.out.println("");
-                            break;
+                                        System.out.println("");
+                                        System.out.println("invalid input");
+                                        System.out.println("");
+                                        break;
                                     case 1:
                                         System.out.println("chose department by index");
                                         Hospital.getDepartment();
                                         System.out.println("");
-                                        System.err.println("enter department index");
+                                        System.out.println("enter department index");
                                         System.out.println("");
                                         int departmentIndex = in.nextInt();
-                                        int attendNumbre ;
-                                        while (true) {                                            
-                                            
-                                        System.out.println("enter how many attend doctor :");
-                                         attendNumbre = in.nextInt();
-                                        if (attendNumbre > Hospital.doctorList.size()) {
-                                            System.out.println("");
-                                            System.err.println("there is no enough doctor");
-                                            System.out.println("");
+                                        int attendNumbre;
+                                        while (true) {
+
+                                            System.out.println("enter how many attend doctor :");
+                                            attendNumbre = in.nextInt();
+                                            if (attendNumbre > Hospital.doctorList.size()) {
+                                                System.out.println("");
+                                                System.out.println("there is no enough doctor");
+                                                System.out.println("");
+                                            } else {
+                                                break;
+                                            }
                                         }
-                                        else
-                                            break;
-                                        }
-                                        
-                                        ArrayList <Doctor> attendDoctorList = new ArrayList();
+
+                                        ArrayList<Doctor> attendDoctorList = new ArrayList();
                                         for (int i = 0; i < attendNumbre; i++) {
                                             System.out.println("");
-                                            System.err.println(i + "-chose attend doctor by id");
+                                            System.out.println(i + "-chose attend doctor by id");
                                             System.out.println("");
                                             for (Doctor doc : Hospital.doctorList) {
 
@@ -450,7 +515,7 @@ public class Main {
                                             for (Doctor doc : Hospital.doctorList) {
                                                 if (doc.getId() == did) {
                                                     attendDoctorList.add(doc);
-                                                    if (doc instanceof  ContractedDoctor) {
+                                                    if (doc instanceof ContractedDoctor) {
                                                         ((ContractedDoctor) doc).addRemuneration(price);
                                                     }
                                                 }
@@ -463,22 +528,22 @@ public class Main {
                                         System.out.println("chose attend doctor by id");
                                         Hospital.getDoctorLIst();
                                         System.out.println("");
-                                        System.err.println("enter doctor id");
+                                        System.out.println("enter doctor id");
                                         System.out.println("");
                                         int did = in.nextInt();
                                         System.out.println("chose clinic by index");
                                         Hospital.getClinic();
                                         System.out.println("");
-                                        System.err.println("enter clinic index");
+                                        System.out.println("enter clinic index");
                                         System.out.println("");
                                         int clinicIndex = in.nextInt();
                                         for (Doctor attendDoctor : Hospital.doctorList) {
                                             if (attendDoctor.getId() == did) {
-                                                 if (attendDoctor instanceof  ContractedDoctor) {
-                                                        ((ContractedDoctor) attendDoctor).addRemuneration(price);
-                                                    }
+                                                if (attendDoctor instanceof ContractedDoctor) {
+                                                    ((ContractedDoctor) attendDoctor).addRemuneration(price);
+                                                }
                                                 ((InnerPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
-                                                
+
                                             }
 
                                         }
@@ -490,20 +555,20 @@ public class Main {
                                 System.out.println("chose attend doctor by id");
                                 Hospital.getDoctorLIst();
                                 System.out.println("");
-                                System.err.println("enter doctor id");
+                                System.out.println("enter doctor id");
                                 System.out.println("");
                                 int did = in.nextInt();
                                 System.out.println("chose clinic by index");
                                 Hospital.getClinic();
                                 System.out.println("");
-                                System.err.println("enter clinic index");
+                                System.out.println("enter clinic index");
                                 System.out.println("");
                                 int clinicIndex = in.nextInt();
                                 for (Doctor attendDoctor : Hospital.doctorList) {
                                     if (attendDoctor.getId() == did) {
-                                        if (attendDoctor instanceof  ContractedDoctor) {
-                                                        ((ContractedDoctor) attendDoctor).addRemuneration(price);
-                                                    }
+                                        if (attendDoctor instanceof ContractedDoctor) {
+                                            ((ContractedDoctor) attendDoctor).addRemuneration(price);
+                                        }
                                         ((OutterPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
 
                                     }
@@ -513,20 +578,20 @@ public class Main {
                         }
                     }
                     break;
-                case 10:
+                case 11:
                     System.out.println("chose an option\n [1] show patient of all time\n [2] show patient in specific time zone");
                     int op7 = in.nextInt();
                     switch (op7) {
                         default:
                             System.out.println("");
-                            System.err.println("invalid input");
+                            System.out.println("invalid input");
                             System.out.println("");
                             break;
                         case 1:
                             for (Patient p : Hospital.patientList) {
                                 if (p instanceof InnerPatient) {
-                                    for (InnerTreatment t : ((InnerPatient) p).getInnerTreatmentList()) { 
-                                    System.out.println(p);
+                                    for (InnerTreatment t : ((InnerPatient) p).getInnerTreatmentList()) {
+                                        System.out.println(p);
                                     }
                                 }
                             }
@@ -534,7 +599,7 @@ public class Main {
 
                         case 2:
                             System.out.println("");
-                            System.err.println("enter time zone start date");
+                            System.out.println("enter time zone start date");
                             System.out.println("");
                             System.out.println("enter time zone start year");
                             int zsy = in.nextInt();
@@ -544,7 +609,7 @@ public class Main {
                             int zsd = in.nextInt();
 
                             System.out.println("");
-                            System.err.println("enter time zone end date");
+                            System.out.println("enter time zone end date");
                             System.out.println("");
                             System.out.println("enter time zone end year");
                             int zey = in.nextInt();
@@ -559,23 +624,19 @@ public class Main {
                                         if (zsy < t.getTreatmentDate().getYear()) {
                                             if (t.getTreatmentDate().getYear() < zey) {
                                                 System.out.println(p);
-                                            }
-                                            else if (t.getTreatmentDate().getYear() == zey) {
+                                            } else if (t.getTreatmentDate().getYear() == zey) {
                                                 if (t.getTreatmentDate().getMonth() < zem) {
                                                     System.out.println(p);
-                                                }
-                                                else if (t.getTreatmentDate().getMonth() == zem) {
+                                                } else if (t.getTreatmentDate().getMonth() == zem) {
                                                     if (t.getTreatmentDate().getDay() <= zed) {
                                                         System.out.println(p);
                                                     }
                                                 }
                                             }
-                                        }
-                                        else if (zsy == t.getTreatmentDate().getYear()) {
+                                        } else if (zsy == t.getTreatmentDate().getYear()) {
                                             if (zsm < t.getTreatmentDate().getMonth()) {
                                                 System.out.println(p);
-                                            }
-                                            else if (zsm == t.getTreatmentDate().getMonth()) {
+                                            } else if (zsm == t.getTreatmentDate().getMonth()) {
                                                 if (zsd <= t.getTreatmentDate().getDay()) {
                                                     System.out.println(p);
                                                 }
@@ -584,15 +645,15 @@ public class Main {
                                     }
                                 }
                             }
-                            
+
                             break;
                     }
                     break;
-                case 11:
+                case 12:
                     System.out.println("chose patient by id ");
                     Hospital.getPatientLIst();
                     System.out.println("");
-                    System.err.println("enter id");
+                    System.out.println("enter id");
                     System.out.println("");
                     int pid = in.nextInt();
                     for (Patient p : Hospital.patientList) {
@@ -604,27 +665,27 @@ public class Main {
                             }
                         }
                     }
-                    break; 
-                case 12 :
+                    break;
+                case 13:
                     System.out.println("chose an option\n [1] show number patient of all time and all department\n [2] show number of patient in specific time zone");
                     int op8 = in.nextInt();
-                    int patientCount =0 ;
+                    int patientCount = 0;
                     switch (op8) {
                         default:
                             System.out.println("");
-                            System.err.println("invalid input");
+                            System.out.println("invalid input");
                             System.out.println("");
                             break;
-                        
+
                         case 1:
                             for (Patient p : Hospital.patientList) {
                                 if (p instanceof InnerPatient) {
-                                   patientCount++ ;
+                                    patientCount++;
                                 }
                             }
-         
-                            System.out.println(""); 
-                            System.err.println("number of patient is :" + patientCount);
+
+                            System.out.println("");
+                            System.out.println("number of patient is :" + patientCount);
                             System.out.println("");
                             break;
 
@@ -632,11 +693,11 @@ public class Main {
                             System.out.println("chose department by index");
                             Hospital.getDepartment();
                             System.out.println("");
-                            System.err.println("enter index");
+                            System.out.println("enter index");
                             System.out.println("");
-                            int departmentIndex = in.nextInt() ;
+                            int departmentIndex = in.nextInt();
                             System.out.println("");
-                            System.err.println("enter time zone start date");
+                            System.out.println("enter time zone start date");
                             System.out.println("");
                             System.out.println("enter time zone start year");
                             int zsy = in.nextInt();
@@ -646,7 +707,7 @@ public class Main {
                             int zsd = in.nextInt();
 
                             System.out.println("");
-                            System.err.println("enter time zone end date");
+                            System.out.println("enter time zone end date");
                             System.out.println("");
                             System.out.println("enter time zone end year");
                             int zey = in.nextInt();
@@ -654,48 +715,49 @@ public class Main {
                             int zem = in.nextInt();
                             System.out.println("enter time zone end day");
                             int zed = in.nextInt();
-                            
+
                             for (Patient p : Hospital.patientList) {
                                 if (p instanceof InnerPatient) {
                                     for (InnerTreatment t : ((InnerPatient) p).getInnerTreatmentList()) {
-                                        if (t.getDepartmentIndex()==departmentIndex) {
+                                        if (t.getDepartmentIndex() == departmentIndex) {
                                             if (zsy < t.getTreatmentDate().getYear()) {
-                                            if (t.getTreatmentDate().getYear() < zey) {
-                                                patientCount++ ;
-                                            }
-                                            else if (t.getTreatmentDate().getYear() == zey) {
-                                                if (t.getTreatmentDate().getMonth() < zem) {
-                                                    patientCount++ ;
+                                                if (t.getTreatmentDate().getYear() < zey) {
+                                                    patientCount++;
+                                                } else if (t.getTreatmentDate().getYear() == zey) {
+                                                    if (t.getTreatmentDate().getMonth() < zem) {
+                                                        patientCount++;
+                                                    } else if (t.getTreatmentDate().getMonth() == zem) {
+                                                        if (t.getTreatmentDate().getDay() <= zed) {
+                                                            patientCount++;
+                                                        }
+                                                    }
                                                 }
-                                                else if (t.getTreatmentDate().getMonth() == zem) {
-                                                    if (t.getTreatmentDate().getDay() <= zed) {
-                                                        patientCount++ ;
+                                            } else if (zsy == t.getTreatmentDate().getYear()) {
+                                                if (zsm < t.getTreatmentDate().getMonth()) {
+                                                    patientCount++;
+                                                } else if (zsm == t.getTreatmentDate().getMonth()) {
+                                                    if (zsd <= t.getTreatmentDate().getDay()) {
+                                                        patientCount++;
                                                     }
                                                 }
                                             }
                                         }
-                                        else if (zsy == t.getTreatmentDate().getYear()) {
-                                            if (zsm < t.getTreatmentDate().getMonth()) {
-                                                patientCount++ ;
-                                            }
-                                            else if (zsm == t.getTreatmentDate().getMonth()) {
-                                                if (zsd <= t.getTreatmentDate().getDay()) {
-                                                    patientCount++ ;
-                                                }
-                                            }
-                                        }
-                                        }
                                     }
                                 }
-                            }   
-                            System.out.println("");   
-                            System.err.println("number of patient in" + Hospital.department[departmentIndex] + "is :" + patientCount);
+                            }
+                            System.out.println("");
+                            System.out.println("number of patient in" + Hospital.department[departmentIndex] + "is :" + patientCount);
                             System.out.println("");
                             break;
                     }
                     break;
-                    
+                        
+
+                       
+                        
+                        
+                        
+            }
         }
     }
 }
-}    

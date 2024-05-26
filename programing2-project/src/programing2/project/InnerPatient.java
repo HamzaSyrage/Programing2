@@ -24,6 +24,15 @@ public class InnerPatient extends Patient {
         super(name, address, year, month, day);
         this.isDischarged = isDischarged;
     }
+
+    public InnerPatient(OutterPatient p) {
+        super(p.getName(), p.getAddress(), p.getBirthDate().getYear(), p.getBirthDate().getMonth(), p.getBirthDate().getDay());
+        this.outterTreatmentsList = p.getOutterTreatmentsList() ;
+    }
+    
+    
+    
+    
     
     public void setDisgargeDate(int dyear, int dmonth, int dday){
     this.isDischarged = true ;

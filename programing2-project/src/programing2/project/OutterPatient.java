@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class OutterPatient extends Patient {
     private ArrayList <OutterTreatment> outterTreatmentsList = new ArrayList();
-    private final boolean isAccepted = true ;
+    private  boolean isAccepted  ;
     private Date acceptDate ;
 
     
@@ -25,6 +25,10 @@ public class OutterPatient extends Patient {
             System.out.println(ot);
             System.out.println("");
         }
+    }
+
+    public ArrayList<OutterTreatment> getOutterTreatmentsList() {
+        return outterTreatmentsList;
     }
     
     
