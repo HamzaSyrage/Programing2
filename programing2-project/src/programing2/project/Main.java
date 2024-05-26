@@ -44,6 +44,11 @@ public class Main {
                     System.out.println("enter birth day");
                     d = in.nextInt();
                     switch (op2) {
+                        default:
+                            System.out.println("");
+                            System.err.println("invalid input");
+                            System.out.println("");
+                            break;
                         case 1:
                             int sy,
                              sm,
@@ -81,6 +86,7 @@ public class Main {
                     }
                     break;
                 case 2:
+                    
                     System.out.println("");
                     System.err.println("chose the doctor by id to delete");
                     System.out.println("");
@@ -93,6 +99,11 @@ public class Main {
                     int op3 = in.nextInt();
                     boolean isThereDoctor = false;
                     switch (op3) {
+                        default:
+                            System.out.println("");
+                            System.err.println("invalid input");
+                            System.out.println("");
+                            break;
                         case 1:
                             Hospital.getDoctorLIst();
 
@@ -182,6 +193,11 @@ public class Main {
                     System.out.println(" [1] all doctor\n [2] intern doctor\n [3] specialized doctor\n [4] contracted doctor\n");
                     int op4 = in.nextInt();
                     switch (op4) {
+                        default:
+                            System.out.println("");
+                            System.err.println("invalid input");
+                            System.out.println("");
+                            break;
                         case 1:
                             System.out.println("");
                             System.err.println("number of all doctor is: " + Hospital.doctorList.size());
@@ -235,6 +251,11 @@ public class Main {
                     System.out.println("enter birth day");
                     d = in.nextInt();
                     switch (op5) {
+                        default:
+                            System.out.println("");
+                            System.err.println("invalid input");
+                            System.out.println("");
+                            break;
                         case 1:
                             int dy,
                              dm,
@@ -321,6 +342,11 @@ public class Main {
                     int op6 = in.nextInt();
                     boolean isTherePatient = false;
                     switch (op6) {
+                        default:
+                            System.out.println("");
+                            System.err.println("invalid input");
+                            System.out.println("");
+                            break;
                         case 1:
                             Hospital.getPatientLIst();
                            
@@ -382,6 +408,11 @@ public class Main {
                                 System.out.println("chose treatment type\n [1] inner treatment\n [2] outter treatment");
                                 int op7 = in.nextInt();
                                 switch (op7) {
+                                    default:
+                            System.out.println("");
+                            System.err.println("invalid input");
+                            System.out.println("");
+                            break;
                                     case 1:
                                         System.out.println("chose department by index");
                                         Hospital.getDepartment();
@@ -486,6 +517,11 @@ public class Main {
                     System.out.println("chose an option\n [1] show patient of all time\n [2] show patient in specific time zone");
                     int op7 = in.nextInt();
                     switch (op7) {
+                        default:
+                            System.out.println("");
+                            System.err.println("invalid input");
+                            System.out.println("");
+                            break;
                         case 1:
                             for (Patient p : Hospital.patientList) {
                                 if (p instanceof InnerPatient) {
@@ -574,6 +610,11 @@ public class Main {
                     int op8 = in.nextInt();
                     int patientCount =0 ;
                     switch (op8) {
+                        default:
+                            System.out.println("");
+                            System.err.println("invalid input");
+                            System.out.println("");
+                            break;
                         
                         case 1:
                             for (Patient p : Hospital.patientList) {
