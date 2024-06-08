@@ -1,5 +1,7 @@
 package programing2.project;
 
+import java.util.ArrayList;
+
 public class Patient {
     private static int counter = 1 ;
     private final int id = counter++;
@@ -32,7 +34,15 @@ public class Patient {
     }
 
     
+    public void addOutterTreatmentToList(int clinicIndex, Doctor attendingDoctor, int year, int month, int day, float Price) {
+        
+    }
+    
+    
 
+    public void addInnerTreatmentToList(int departmentIndex, ArrayList attendingDoctorList , int year, int month, int day, float Price) {
+       
+    }
     
     
     public void getTreatmentList() { 

@@ -28,7 +28,7 @@ public class InnerTreatment extends Treatment {
 
     @Override
     public String toString() {
-        return "InnerTreatment{" + super.getInfo() + ", departmentIndex=" + departmentIndex + ", attendingDoctorList=" + attendingDoctorList + '}';
+        return "InnerTreatment{" + super.getInfo() + ", departmentIndex=" + departmentIndex + "\n attendingDoctorList=" + attendingDoctorList + "}\n";
     }
 
     

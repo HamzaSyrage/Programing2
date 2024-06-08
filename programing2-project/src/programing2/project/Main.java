@@ -16,10 +16,12 @@ public class Main {
         Hospital.doctorList.add(new InternDoctor(2023, 1, 1, "ahmad", 2000, 1, 1));
         Hospital.doctorList.add(new SpecializedDoctor(2, "samer", 2000, 1, 1));
         Hospital.doctorList.add(new ContractedDoctor(2020, 1, 1, "jamal", 2000, 1, 1));
-        Hospital.patientList.add(new InnerPatient(false, "kamal", "damascus", 2000, 1, 1)) ;
-        Hospital.patientList.add(new OutterPatient(2023, 1, 1, "ramy", "damascus", 2000, 1, 1)) ;
+        Hospital.patientList.add(new InnerPatient(false, "kamal", "damascus", 2000, 1, 1));
+        Hospital.patientList.add(new OutterPatient(2023, 1, 1, "ramy", "damascus", 2000, 1, 1));
+        Hospital.patientList.get(0).addInnerTreatmentToList(1, Hospital.doctorList, 2024, 6, 1, 2500);
+        Hospital.patientList.get(0).addOutterTreatmentToList(2, Hospital.doctorList.get(0), 2024, 5, 1, 5000);
+        Hospital.patientList.get(1).addOutterTreatmentToList(1, Hospital.doctorList.get(1), 2024, 3, 5, 1000);
         
-
         int op;
         while (true) {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
@@ -47,14 +49,7 @@ public class Main {
                     System.out.println("chose doctor type\n [1] intern doctor\n [2] specialized doctor\n [3] contracted doctor\n");
                     op2 = in.nextInt();
                     String name;
-                    System.out.println("enter name");
-                    name = in.next();
-                    System.out.println("enter birth year");
-                    y = in.nextInt();
-                    System.out.println("enter birth month");
-                    m = in.nextInt();
-                    System.out.println("enter birth day");
-                    d = in.nextInt();
+
                     switch (op2) {
                         default:
                             System.out.println("");
@@ -65,6 +60,14 @@ public class Main {
                             int sy,
                              sm,
                              sd;
+                            System.out.println("enter name");
+                            name = in.next();
+                            System.out.println("enter birth year");
+                            y = in.nextInt();
+                            System.out.println("enter birth month");
+                            m = in.nextInt();
+                            System.out.println("enter birth day");
+                            d = in.nextInt();
                             System.out.println("enter start training year");
                             sy = in.nextInt();
                             System.out.println("enter start training month");
@@ -76,6 +79,14 @@ public class Main {
                             break;
                         case 2:
                             int index;
+                            System.out.println("enter name");
+                            name = in.next();
+                            System.out.println("enter birth year");
+                            y = in.nextInt();
+                            System.out.println("enter birth month");
+                            m = in.nextInt();
+                            System.out.println("enter birth day");
+                            d = in.nextInt();
                             System.out.println("");
                             System.out.println("chose doctor department");
                             System.out.println("");
@@ -85,7 +96,14 @@ public class Main {
                             Hospital.doctorList.add(new SpecializedDoctor(index, name, y, m, d));
                             break;
                         case 3:
-
+                            System.out.println("enter name");
+                            name = in.next();
+                            System.out.println("enter birth year");
+                            y = in.nextInt();
+                            System.out.println("enter birth month");
+                            m = in.nextInt();
+                            System.out.println("enter birth day");
+                            d = in.nextInt();
                             System.out.println("enter start contract year");
                             sy = in.nextInt();
                             System.out.println("enter start contract month");
@@ -180,7 +198,7 @@ public class Main {
                     break;
                 case 4:
                     boolean InternFound = false;
-
+                    boolean validId = false;
                     for (Doctor e : Hospital.doctorList) {
                         if (e instanceof InternDoctor) {
                             System.out.println(e);
@@ -193,18 +211,35 @@ public class Main {
                         System.out.println("enter id ");
                         System.out.println("");
                         int dId = in.nextInt();
-                        Hospital.getDepartment();
-                        System.out.println("");
-                        System.out.println("enter department index");
-                        System.out.println("");
-                        int indexOfDepartment = in.nextInt();
                         for (Doctor e : Hospital.doctorList) {
+                            if (e instanceof InternDoctor) {
+                                
                             if (e.getId() == dId) {
-                                Hospital.doctorList.add(new SpecializedDoctor(e, indexOfDepartment));
-                                Hospital.doctorList.remove(e);
+                                validId = true;
                             }
-
+                            }
                         }
+
+                        if (validId) {
+
+                            Hospital.getDepartment();
+                            System.out.println("");
+                            System.out.println("enter department index");
+                            System.out.println("");
+                            int indexOfDepartment = in.nextInt();
+                            for (Doctor e : Hospital.doctorList) {
+                                if (e.getId() == dId) {
+                                    Hospital.doctorList.add(new SpecializedDoctor(e, indexOfDepartment));
+                                    Hospital.doctorList.remove(e);
+                                }
+
+                            }
+                        } else {
+                            System.out.println("");
+                            System.out.println("invalid id");
+                            System.out.println("");
+                        }
+
                     } else {
                         System.out.println("");
                         System.out.println("there is no intern");
@@ -263,16 +298,7 @@ public class Main {
                     int op5 = in.nextInt();
                     boolean isDisCharged;
                     String addres;
-                    System.out.println("enter name");
-                    name = in.next();
-                    System.out.println("enter addres");
-                    addres = in.next();
-                    System.out.println("enter birth year");
-                    y = in.nextInt();
-                    System.out.println("enter birth month");
-                    m = in.nextInt();
-                    System.out.println("enter birth day");
-                    d = in.nextInt();
+
                     switch (op5) {
                         default:
                             System.out.println("");
@@ -283,6 +309,16 @@ public class Main {
                             int dy,
                              dm,
                              dd;
+                            System.out.println("enter name");
+                            name = in.next();
+                            System.out.println("enter addres");
+                            addres = in.next();
+                            System.out.println("enter birth year");
+                            y = in.nextInt();
+                            System.out.println("enter birth month");
+                            m = in.nextInt();
+                            System.out.println("enter birth day");
+                            d = in.nextInt();
                             System.out.println("");
                             System.out.println("is the patient charged y/n");
                             System.out.println("");
@@ -306,6 +342,16 @@ public class Main {
                             }
                             break;
                         case 2:
+                            System.out.println("enter name");
+                            name = in.next();
+                            System.out.println("enter addres");
+                            addres = in.next();
+                            System.out.println("enter birth year");
+                            y = in.nextInt();
+                            System.out.println("enter birth month");
+                            m = in.nextInt();
+                            System.out.println("enter birth day");
+                            d = in.nextInt();
                             System.out.println("");
                             System.out.println("enter accept date");
                             System.out.println("");
@@ -321,7 +367,7 @@ public class Main {
                     break;
                 case 7:
                     isDisCharged = false;
-
+                    boolean valid = false;
                     for (Patient e : Hospital.patientList) {
                         if (e instanceof InnerPatient) {
                             if (!((InnerPatient) e).getIsDischarged()) {
@@ -337,22 +383,39 @@ public class Main {
                         System.out.println("enter id ");
                         System.out.println("");
                         int dId = in.nextInt();
-                        int dy, dm, dd;
-
-                        System.out.println("");
-                        System.out.println("enter discharged date");
-                        System.out.println("");
-                        System.out.println("enter discharged year");
-                        dy = in.nextInt();
-                        System.out.println("enter discharged month");
-                        dm = in.nextInt();
-                        System.out.println("enter discharged day");
-                        dd = in.nextInt();
-
                         for (Patient e : Hospital.patientList) {
+                            if (e instanceof InnerPatient) {
+                                
                             if (e.getId() == dId) {
-                                ((InnerPatient) e).setDisgargeDate(dy, dm, dd);
+                                valid = true;
                             }
+
+                           }
+                        }
+
+                        if (valid) {
+
+                            int dy, dm, dd;
+
+                            System.out.println("");
+                            System.out.println("enter discharged date");
+                            System.out.println("");
+                            System.out.println("enter discharged year");
+                            dy = in.nextInt();
+                            System.out.println("enter discharged month");
+                            dm = in.nextInt();
+                            System.out.println("enter discharged day");
+                            dd = in.nextInt();
+
+                            for (Patient e : Hospital.patientList) {
+                                if (e.getId() == dId) {
+                                    ((InnerPatient) e).setDisgargeDate(dy, dm, dd);
+                                }
+                            }
+                        } else {
+                            System.out.println("");
+                            System.out.println("invalid id");
+                            System.out.println("");
                         }
                     } else {
                         System.out.println("");
@@ -360,9 +423,12 @@ public class Main {
                         System.out.println("");
                     }
                     break;
-                    case 8 :
+                case 8:
                     boolean outterFound = false;
-                    int dy,dm,dd ;
+                    validId = false;
+                    int dy,
+                     dm,
+                     dd;
                     for (Patient p : Hospital.patientList) {
                         if (p instanceof OutterPatient) {
                             System.out.println(p);
@@ -375,12 +441,19 @@ public class Main {
                         System.out.println("enter id ");
                         System.out.println("");
                         int dId = in.nextInt();
-                        Hospital.getDepartment();
-                        System.out.println("");
-                        System.out.println("enter department index");
-                        System.out.println("");
-                        int indexOfDepartment = in.nextInt();
-                        System.out.println("");
+                        for (Patient e : Hospital.patientList) {
+                            if (e instanceof OutterPatient) {
+                                
+                            if (e.getId() == dId) {
+                                validId = true;
+                            }
+                            }
+
+                        }
+
+                        if (validId) {
+                            Hospital.getDepartment();
+                            System.out.println("");
                             System.out.println("enter accept date");
                             System.out.println("");
                             System.out.println("enter accept year");
@@ -389,19 +462,24 @@ public class Main {
                             dm = in.nextInt();
                             System.out.println("enter accept day");
                             dd = in.nextInt();
-                        for (Patient p : Hospital.patientList) {
-                            if (p.getId() == dId) {
-                                Hospital.patientList.add(new InnerPatient((OutterPatient)p));
-                                Hospital.patientList.remove(p);
-                            }
+                            for (Patient p : Hospital.patientList) {
+                                if (p.getId() == dId) {
+                                    Hospital.patientList.add(new InnerPatient((OutterPatient) p));
+                                    Hospital.patientList.remove(p);
+                                }
 
+                            }
+                        } else {
+                            System.out.println("");
+                            System.out.println("invalid id");
+                            System.out.println("");
                         }
                     } else {
                         System.out.println("");
                         System.out.println("there is no outter patient");
                         System.out.println("");
                     }
-                    break;  
+                    break;
                 case 9:
                     System.out.println(" [1] all patient\n [2] inner patient\n [3] outter patient\n");
                     int op6 = in.nextInt();
@@ -450,137 +528,173 @@ public class Main {
                     }
                     break;
                 case 10:
+                    validId = false;
                     System.out.println("chose patient by id to add treatment to him");
                     Hospital.getPatientLIst();
                     System.out.println("");
                     System.out.println("enter id");
                     System.out.println("");
                     int tid = in.nextInt();
-                    System.out.println("entre treatment price");
-                    float price = in.nextFloat();
-                    System.out.println("");
-                    System.out.println("entre treatment date");
-                    System.out.println("");
-                    System.out.println("entre treatment year");
-                    int ty = in.nextInt();
-                    System.out.println("entre treatment month");
-                    int tm = in.nextInt();
-                    System.out.println("entre treatment day");
-                    int td = in.nextInt();
                     for (Patient e : Hospital.patientList) {
                         if (e.getId() == tid) {
-                            if (e instanceof InnerPatient) {
-                                System.out.println("chose treatment type\n [1] inner treatment\n [2] outter treatment");
-                                int op7 = in.nextInt();
-                                switch (op7) {
-                                    default:
-                                        System.out.println("");
-                                        System.out.println("invalid input");
-                                        System.out.println("");
-                                        break;
-                                    case 1:
-                                        System.out.println("chose department by index");
-                                        Hospital.getDepartment();
-                                        System.out.println("");
-                                        System.out.println("enter department index");
-                                        System.out.println("");
-                                        int departmentIndex = in.nextInt();
-                                        int attendNumbre;
-                                        while (true) {
+                            validId = true;
+                        }
 
-                                            System.out.println("enter how many attend doctor :");
-                                            attendNumbre = in.nextInt();
-                                            if (attendNumbre > Hospital.doctorList.size()) {
+                    }
+
+                    if (validId) {
+                        System.out.println("entre treatment price");
+                        float price = in.nextFloat();
+                        System.out.println("");
+                        System.out.println("entre treatment date");
+                        System.out.println("");
+                        System.out.println("entre treatment year");
+                        int ty = in.nextInt();
+                        System.out.println("entre treatment month");
+                        int tm = in.nextInt();
+                        System.out.println("entre treatment day");
+                        int td = in.nextInt();
+                        for (Patient e : Hospital.patientList) {
+                            if (e.getId() == tid) {
+                                if (e instanceof InnerPatient) {
+                                    System.out.println("chose treatment type\n [1] inner treatment\n [2] outter treatment");
+                                    int op7 = in.nextInt();
+                                    switch (op7) {
+                                        default:
+                                            System.out.println("");
+                                            System.out.println("invalid input");
+                                            System.out.println("");
+                                            break;
+                                        case 1:
+                                            System.out.println("chose department by index");
+                                            Hospital.getDepartment();
+                                            System.out.println("");
+                                            System.out.println("enter department index");
+                                            System.out.println("");
+                                            int departmentIndex = in.nextInt();
+                                            if (departmentIndex > 5) {
                                                 System.out.println("");
-                                                System.out.println("there is no enough doctor");
+                                                System.out.println("invalid input");
                                                 System.out.println("");
                                             } else {
-                                                break;
-                                            }
-                                        }
+                                                int attendNumbre;
+                                                while (true) {
 
-                                        ArrayList<Doctor> attendDoctorList = new ArrayList();
-                                        for (int i = 0; i < attendNumbre; i++) {
-                                            System.out.println("");
-                                            System.out.println(i + "-chose attend doctor by id");
-                                            System.out.println("");
-                                            for (Doctor doc : Hospital.doctorList) {
-
-                                                if (!(attendDoctorList.contains(doc))) {
-                                                    System.out.println(doc);
-                                                }
-
-                                            }
-                                            int did = in.nextInt();
-                                            for (Doctor doc : Hospital.doctorList) {
-                                                if (doc.getId() == did) {
-                                                    attendDoctorList.add(doc);
-                                                    if (doc instanceof ContractedDoctor) {
-                                                        ((ContractedDoctor) doc).addRemuneration(price);
+                                                    System.out.println("enter how many attend doctor :");
+                                                    attendNumbre = in.nextInt();
+                                                    if (attendNumbre > Hospital.doctorList.size()) {
+                                                        System.out.println("");
+                                                        System.out.println("there is no enough doctor");
+                                                        System.out.println("");
+                                                    } else {
+                                                        break;
                                                     }
                                                 }
-                                            }
-                                        }
-                                        ((InnerPatient) e).addInnerTreatmentToList(departmentIndex, attendDoctorList, ty, tm, td, price);
-                                        break;
-                                    case 2:
 
-                                        System.out.println("chose attend doctor by id");
-                                        Hospital.getDoctorLIst();
-                                        System.out.println("");
-                                        System.out.println("enter doctor id");
-                                        System.out.println("");
-                                        int did = in.nextInt();
-                                        System.out.println("chose clinic by index");
-                                        Hospital.getClinic();
-                                        System.out.println("");
-                                        System.out.println("enter clinic index");
-                                        System.out.println("");
-                                        int clinicIndex = in.nextInt();
-                                        for (Doctor attendDoctor : Hospital.doctorList) {
-                                            if (attendDoctor.getId() == did) {
-                                                if (attendDoctor instanceof ContractedDoctor) {
-                                                    ((ContractedDoctor) attendDoctor).addRemuneration(price);
+                                                ArrayList<Doctor> attendDoctorList = new ArrayList();
+                                                for (int i = 0; i < attendNumbre; i++) {
+                                                    System.out.println("");
+                                                    System.out.println(i + "-chose attend doctor by id");
+                                                    System.out.println("");
+                                                    for (Doctor doc : Hospital.doctorList) {
+
+                                                        if (!(attendDoctorList.contains(doc))) {
+                                                            System.out.println(doc);
+                                                        }
+
+                                                    }
+                                                    int did = in.nextInt();
+                                                    for (Doctor doc : Hospital.doctorList) {
+                                                        if (doc.getId() == did) {
+                                                            attendDoctorList.add(doc);
+                                                            if (doc instanceof ContractedDoctor) {
+                                                                ((ContractedDoctor) doc).addRemuneration(price);
+                                                            }
+                                                        }
+                                                    }
                                                 }
-                                                ((InnerPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
+                                                ((InnerPatient) e).addInnerTreatmentToList(departmentIndex, attendDoctorList, ty, tm, td, price);
+                                            }
+                                            break;
+
+                                        case 2:
+
+                                            System.out.println("chose attend doctor by id");
+                                            Hospital.getDoctorLIst();
+                                            System.out.println("");
+                                            System.out.println("enter doctor id");
+                                            System.out.println("");
+                                            int did = in.nextInt();
+                                            for (Doctor t : Hospital.doctorList) {
+                                                if (t.getId() == did) {
+                                                    validId = true;
+                                                }
 
                                             }
 
-                                        }
+                                            if (validId) {
+                                                System.out.println("chose clinic by index");
+                                                Hospital.getClinic();
+                                                System.out.println("");
+                                                System.out.println("enter clinic index");
+                                                System.out.println("");
+                                                int clinicIndex = in.nextInt();
+                                                for (Doctor attendDoctor : Hospital.doctorList) {
+                                                    if (attendDoctor.getId() == did) {
+                                                        if (attendDoctor instanceof ContractedDoctor) {
+                                                            ((ContractedDoctor) attendDoctor).addRemuneration(price);
+                                                        }
+                                                        ((InnerPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
 
-                                        break;
-                                }
+                                                    }
 
-                            } else if (e instanceof OutterPatient) {
-                                System.out.println("chose attend doctor by id");
-                                Hospital.getDoctorLIst();
-                                System.out.println("");
-                                System.out.println("enter doctor id");
-                                System.out.println("");
-                                int did = in.nextInt();
-                                System.out.println("chose clinic by index");
-                                Hospital.getClinic();
-                                System.out.println("");
-                                System.out.println("enter clinic index");
-                                System.out.println("");
-                                int clinicIndex = in.nextInt();
-                                for (Doctor attendDoctor : Hospital.doctorList) {
-                                    if (attendDoctor.getId() == did) {
-                                        if (attendDoctor instanceof ContractedDoctor) {
-                                            ((ContractedDoctor) attendDoctor).addRemuneration(price);
-                                        }
-                                        ((OutterPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
+                                                }
+                                            } else {
+                                                System.out.println("");
+                                                System.out.println("invalid id");
+                                                System.out.println("");
+                                            }
+                                            break;
 
                                     }
+                                } else if (e instanceof OutterPatient) {
+                                    System.out.println("chose attend doctor by id");
+                                    Hospital.getDoctorLIst();
+                                    System.out.println("");
+                                    System.out.println("enter doctor id");
+                                    System.out.println("");
+                                    int did = in.nextInt();
 
+                                    System.out.println("chose clinic by index");
+                                    Hospital.getClinic();
+                                    System.out.println("");
+                                    System.out.println("enter clinic index");
+                                    System.out.println("");
+                                    int clinicIndex = in.nextInt();
+                                    for (Doctor attendDoctor : Hospital.doctorList) {
+                                        if (attendDoctor.getId() == did) {
+                                            if (attendDoctor instanceof ContractedDoctor) {
+                                                ((ContractedDoctor) attendDoctor).addRemuneration(price);
+                                            }
+                                            ((OutterPatient) e).addOutterTreatmentToList(clinicIndex, attendDoctor, ty, td, td, price);
+
+                                        }
+
+                                    }
                                 }
                             }
                         }
+                    } else {
+                        System.out.println("");
+                        System.out.println("invalid id");
+                        System.out.println("");
                     }
                     break;
                 case 11:
                     System.out.println("chose an option\n [1] show patient of all time\n [2] show patient in specific time zone");
+                 
                     int op7 = in.nextInt();
+                    
                     switch (op7) {
                         default:
                             System.out.println("");
@@ -590,9 +704,18 @@ public class Main {
                         case 1:
                             for (Patient p : Hospital.patientList) {
                                 if (p instanceof InnerPatient) {
-                                    for (InnerTreatment t : ((InnerPatient) p).getInnerTreatmentList()) {
+                                    
+                                    if (!((InnerPatient) p).getInnerTreatmentList().isEmpty()) {
+                                        
+                                    
                                         System.out.println(p);
+                                    
+                                   } else {
+                                        System.out.println("");
+                                        System.out.println("there is no treatment");
+                                        System.out.println("");
                                     }
+                                   
                                 }
                             }
                             break;
@@ -650,23 +773,47 @@ public class Main {
                     }
                     break;
                 case 12:
+                    validId = false;
                     System.out.println("chose patient by id ");
                     Hospital.getPatientLIst();
                     System.out.println("");
                     System.out.println("enter id");
                     System.out.println("");
                     int pid = in.nextInt();
-                    for (Patient p : Hospital.patientList) {
-                        if (p.getId() == pid) {
-                            if (p instanceof InnerPatient) {
-                                p.getTreatmentList();
-                            } else if (p instanceof OutterPatient) {
-                                p.getTreatmentList();
+                    for (Patient e : Hospital.patientList) {
+                        if (e.getId() == pid) {
+                            validId = true;
+                        }
+
+                    }
+
+                    if (validId) {
+                        for (Patient p : Hospital.patientList) {
+                            if (p.getId() == pid) {
+                                if (p instanceof InnerPatient) {
+                                    p.getTreatmentList();
+                                    if (((InnerPatient) p).getInnerTreatmentList().isEmpty()) {
+                                        System.out.println("");
+                                        System.out.println("there is no Treatment");
+                                        System.out.println("");
+                                    }
+                                } else if (p instanceof OutterPatient) {
+                                    p.getTreatmentList();
+                                    if (((OutterPatient) p).getOutterTreatmentsList().isEmpty()) {
+                                        System.out.println("");
+                                        System.out.println("there is no Treatment");
+                                        System.out.println("");
+                                    }
+                                }
                             }
                         }
+                    } else {
+                        System.out.println("");
+                        System.out.println("invalid id");
+                        System.out.println("");
                     }
                     break;
-                case 13:
+                case 13:    
                     System.out.println("chose an option\n [1] show number patient of all time and all department\n [2] show number of patient in specific time zone");
                     int op8 = in.nextInt();
                     int patientCount = 0;
@@ -751,12 +898,7 @@ public class Main {
                             break;
                     }
                     break;
-                        
 
-                       
-                        
-                        
-                        
             }
         }
     }

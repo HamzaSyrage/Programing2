@@ -32,9 +32,14 @@ public class OutterPatient extends Patient {
     }
     
     
+//    @Override
+//    public String toString() {
+//        return "OutterPatient{" + super.getInfo()  + ", isAccepted=" + isAccepted + ", acceptDate=" + acceptDate + '}';
+//    }
+
     @Override
     public String toString() {
-        return "OutterPatient{" + super.getInfo()  + ", isAccepted=" + isAccepted + ", acceptDate=" + acceptDate + '}';
+        return "OutterPatient{" + super.getInfo() + "\n outterTreatmentsList=" + outterTreatmentsList + "\n isAccepted=" + isAccepted + ", acceptDate=" + acceptDate + "}\n";
     }
 
     
