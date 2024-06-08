@@ -72,10 +72,7 @@ public class InnerPatient extends Patient {
     
     
     
-//    @Override
-//    public String toString() {
-//        return "InnerPatient{" + super.getInfo() + ", isDischarged=" + isDischarged + ", dischargeDate=" + dischargeDate + '}';
-//    }
+
 
     @Override
     public String toString() {

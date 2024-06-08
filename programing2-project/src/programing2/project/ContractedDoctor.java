@@ -4,7 +4,6 @@ package programing2.project;
 public class ContractedDoctor extends Doctor {
     private float remuneration = 0 ;
     private Date startDate ;
-// we need a method to set rmuration from treat and patient
     public ContractedDoctor(Date startDate, String name, Date birthDate) {
         super(name, birthDate);
         this.startDate = startDate;

@@ -32,10 +32,7 @@ public class OutterPatient extends Patient {
     }
     
     
-//    @Override
-//    public String toString() {
-//        return "OutterPatient{" + super.getInfo()  + ", isAccepted=" + isAccepted + ", acceptDate=" + acceptDate + '}';
-//    }
+
 
     @Override
     public String toString() {

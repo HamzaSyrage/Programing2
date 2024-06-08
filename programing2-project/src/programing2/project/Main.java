@@ -21,7 +21,7 @@ public class Main {
         Hospital.patientList.get(0).addInnerTreatmentToList(1, Hospital.doctorList, 2024, 6, 1, 2500);
         Hospital.patientList.get(0).addOutterTreatmentToList(2, Hospital.doctorList.get(0), 2024, 5, 1, 5000);
         Hospital.patientList.get(1).addOutterTreatmentToList(1, Hospital.doctorList.get(1), 2024, 3, 5, 1000);
-        
+
         int op;
         while (true) {
             System.out.println("chose an option :\n [0] end the program\n [1] add new doctor\n [2] delete existing doctor\n"
@@ -213,10 +213,10 @@ public class Main {
                         int dId = in.nextInt();
                         for (Doctor e : Hospital.doctorList) {
                             if (e instanceof InternDoctor) {
-                                
-                            if (e.getId() == dId) {
-                                validId = true;
-                            }
+
+                                if (e.getId() == dId) {
+                                    validId = true;
+                                }
                             }
                         }
 
@@ -385,12 +385,12 @@ public class Main {
                         int dId = in.nextInt();
                         for (Patient e : Hospital.patientList) {
                             if (e instanceof InnerPatient) {
-                                
-                            if (e.getId() == dId) {
-                                valid = true;
-                            }
 
-                           }
+                                if (e.getId() == dId) {
+                                    valid = true;
+                                }
+
+                            }
                         }
 
                         if (valid) {
@@ -443,10 +443,10 @@ public class Main {
                         int dId = in.nextInt();
                         for (Patient e : Hospital.patientList) {
                             if (e instanceof OutterPatient) {
-                                
-                            if (e.getId() == dId) {
-                                validId = true;
-                            }
+
+                                if (e.getId() == dId) {
+                                    validId = true;
+                                }
                             }
 
                         }
@@ -692,9 +692,9 @@ public class Main {
                     break;
                 case 11:
                     System.out.println("chose an option\n [1] show patient of all time\n [2] show patient in specific time zone");
-                 
+
                     int op7 = in.nextInt();
-                    
+
                     switch (op7) {
                         default:
                             System.out.println("");
@@ -704,18 +704,17 @@ public class Main {
                         case 1:
                             for (Patient p : Hospital.patientList) {
                                 if (p instanceof InnerPatient) {
-                                    
+
                                     if (!((InnerPatient) p).getInnerTreatmentList().isEmpty()) {
-                                        
-                                    
+
                                         System.out.println(p);
-                                    
-                                   } else {
+
+                                    } else {
                                         System.out.println("");
                                         System.out.println("there is no treatment");
                                         System.out.println("");
                                     }
-                                   
+
                                 }
                             }
                             break;
@@ -813,7 +812,7 @@ public class Main {
                         System.out.println("");
                     }
                     break;
-                case 13:    
+                case 13:
                     System.out.println("chose an option\n [1] show number patient of all time and all department\n [2] show number of patient in specific time zone");
                     int op8 = in.nextInt();
                     int patientCount = 0;
