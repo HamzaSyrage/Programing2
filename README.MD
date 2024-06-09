@@ -1,3 +1,3 @@
-### programing 2 project for collage
+# programing 2 project for collage
 ## simple hospital management system 
-# using pure java
+### using pure java
